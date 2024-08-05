@@ -1,0 +1,133 @@
+@import './src/app/scss/colors';
+
+.profile {
+	.form {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap-reverse;
+		max-width: 50%;
+		min-height: 280px;
+		padding: 1.8rem;
+		border-radius: 0.8rem;
+		border: 2px solid rgba(255, 255, 255, 0.05);
+		backdrop-filter: blur(5px);
+		box-shadow: 10px 20px 25px rgba(0, 0, 0, 0.3);
+		margin-top: 2rem;
+
+		&.light {
+			border: 1px solid rgba(17, 17, 17, 0.1);
+			.inputs {
+				input {
+					border-bottom: 1px solid rgba(81, 81, 81, .2);
+
+					&::placeholder {
+						color: var(--foreground-rgb);
+					}
+				}
+			}
+
+			.title {
+				color: var(--green);
+			}
+
+			.button {
+				background-color: var(--green);
+				color: var(--text);
+			}
+		}
+
+		.title {
+			font-size: 2rem;
+			margin-bottom: .5rem;
+			color: $green;
+			user-select: none;
+		}
+
+		.inputs {
+			display: flex;
+			flex: 1 0 auto;
+			gap: .8rem;
+
+			> div {
+				flex: 1 0 50%;
+			}
+
+			input {
+				padding: 0.8rem;
+				border: none;
+				user-select: none;
+				width: 100%;
+				font-family: inherit;
+				background: transparent;
+				border-bottom: 1px solid rgba(245, 245, 245, 0.9);
+				margin-bottom: 0.5rem;
+				outline: none;
+
+				&:first-child {
+					margin-top: .8rem;
+				}
+
+				&.error {
+					border-bottom: 1px solid rgb(255, 96, 38);
+					animation: shake 1s linear 1;
+				}
+
+				&::placeholder {
+					color: rgba(245, 245, 245, 0.8);
+					transition: all 0.16s ease 0s;
+				}
+
+				&:focus::placeholder {
+					opacity: 0;
+				}
+
+				&.hidden {
+					display: none;
+				}
+			}
+
+			.inputError {
+				font-size: 0.8rem;
+				color: rgb(255, 96, 38);
+			}
+		}
+
+		.button {
+			width: 100px;
+			background-color: $green;
+			color: black;
+			font-weight: 700;
+			font-family: inherit;
+			font-size: 1rem;
+			transition: all .23s ease 0s;
+
+			&:disabled {
+				filter: grayscale(100%);
+			}
+
+			&:hover {
+				opacity: .8;
+			}
+		}
+
+		@keyframes shake {
+			10%,
+			90% {
+				transform: translate(-4px, 0);
+			}
+			20%,
+			80% {
+				transform: translate(5px, 0);
+			}
+			30%,
+			50%,
+			70% {
+				transform: translate(-7px, 0);
+			}
+			40%,
+			60% {
+				transform: translate(7px, 0);
+			}
+		}
+	}
+}

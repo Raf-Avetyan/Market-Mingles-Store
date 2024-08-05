@@ -1,0 +1,13 @@
+@import './src/app/scss/colors';
+
+.settings {
+	padding: 1rem;
+}
+
+.skeleton {
+	background-color: $skeleton;
+	min-height: 280px;
+	width: 50%;
+	margin-top: 2rem;
+	border-radius: 0.8rem;
+}

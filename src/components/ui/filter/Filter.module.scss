@@ -1,0 +1,16 @@
+@import '/src/app/scss/colors';
+
+.filter {
+	> div:first-child {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		background-color: transparent;
+		border: 1px solid rgba(0, 128, 0, 0.9);
+		border-radius: 0.6rem;
+		padding: 0.4rem 0.9rem;
+		cursor: pointer;
+		user-select: none;
+	}
+	position: relative;
+}

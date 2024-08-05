@@ -1,0 +1,66 @@
+@import './scss/screens';
+
+html {
+	:root {
+		--foreground-rgb: rgb(214, 219, 220);
+		--background-rgb: rgb(21, 21, 21);
+	}
+
+	&.light {
+		--foreground-rgb: rgb(21, 21, 21);
+		--background-rgb: rgb(250, 250, 250);
+		--bgDark: rgba(51, 51, 51);
+		--text: rgb(250, 250, 250);
+		--green: rgb(107, 179, 0);
+		--darkGreen: rgb(81, 135, 0);
+		--border: rgba(81, 81, 81, 0.1);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--foreground-rgb: rgb(214, 219, 220);
+		--background-rgb: rgb(21, 21, 21);
+	}
+}
+
+html {
+	color-scheme: dark;
+
+	&.light {
+		color-scheme: light;
+	}
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body {
+	max-width: 100vw;
+	overflow-x: hidden;
+}
+
+body {
+	font-family: var(--first-family);
+	color: var(--foreground-rgb);
+	background-color: var(--background-rgb);
+	overflow: hidden;
+	font-size: 14px;
+
+	@media (min-width: $ld) {
+		font-size: 16px;
+	}
+
+	@media (min-width: $tablet) {
+		font-size: 18px;
+	}
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}

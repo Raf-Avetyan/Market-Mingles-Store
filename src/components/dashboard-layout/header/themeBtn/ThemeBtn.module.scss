@@ -1,0 +1,47 @@
+.themeBtn {
+	cursor: pointer;
+
+	.thumb {
+		width: 52px;
+		height: 22px;
+		background-color: rgba(135, 150, 165, 0.2);
+		border-radius: 2rem;
+		position: relative;
+		.circle {
+			width: 32px;
+			height: 32px;
+			background-color: rgb(0, 56, 146);
+			border-radius: 50%;
+			color: whitesmoke;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			transition: all .23s ease 0s;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: .4rem
+		}
+	}
+
+	&.active {
+		.thumb {
+			.circle {
+				left: 70%;
+				transform: translateX(-50%) translateY(-50%);
+			}
+		}
+	}
+}
+@keyframes clickEffect {
+	0% {
+		scale: 0;
+	}
+
+	100% {
+		scale: 1;
+		background-color: transparent;
+	}
+}

@@ -1,0 +1,11 @@
+@import './src/app/scss/colors';
+
+.loaderLine {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 1.5px;
+   transform-origin: left;
+	background-color: $yellow;
+}

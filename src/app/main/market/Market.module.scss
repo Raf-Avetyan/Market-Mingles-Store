@@ -1,0 +1,16 @@
+.market {
+	padding: 1rem;
+}
+
+.top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.wrapper {
+	counter-reset: grid;
+	columns: 16rem;
+	gap: 1rem;
+	margin-top: 1rem;
+}

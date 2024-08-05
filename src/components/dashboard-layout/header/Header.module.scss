@@ -1,0 +1,21 @@
+@import '/src/app/scss/colors';
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.6rem 1.5rem;
+	border-bottom: 2px solid $bgDark;
+	width: 100%;
+	position: relative;
+
+	&.light {
+		border-bottom: 2px solid var(--border);
+	}
+
+	.right {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+}

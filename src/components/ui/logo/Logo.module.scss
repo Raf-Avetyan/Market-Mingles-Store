@@ -1,0 +1,87 @@
+@import '/src/app/scss/colors';
+
+.logo {
+	border-bottom: 2px solid $bgDark;
+	width: 100%;
+	padding: 1.5rem 2rem 1.5rem 1.4rem;
+	user-select: none;
+
+	&.light {
+		border-bottom: 2px solid var(--border);
+	}
+
+	&.hidden {
+		h1 {
+			display: none;
+		}
+		span {
+			display: none;
+		}
+		a {
+			img {
+				width: 50px;
+				height: 50px;
+			}
+		}
+	}
+
+	&:hover {
+		> a {
+			img {
+				scale: 1.08;
+				transform: rotate3d(0, 1, 1, 20deg);
+			}
+		}
+	}
+
+	&:hover {
+		h1 {
+			> p:first-child {
+				transform: translateX(1.5rem);
+			}
+			> p {
+				transform: translateX(-1.5rem);
+			}
+		}
+
+		span {
+			transform: translate(-0.6rem, 1.2rem) rotate(-32deg);
+		}
+	}
+
+	> a {
+		display: inline-flex;
+		align-items: center;
+		column-gap: 1.2rem;
+		position: relative;
+
+		img {
+			object-fit: contain;
+			object-position: center;
+			transition: all 1s cubic-bezier(0.8, 2.04, 0.26, 0) 0s;
+		}
+
+		h1 {
+			font-size: 1.8rem;
+
+			p {
+				line-height: 1;
+				transition: all 1s cubic-bezier(0.8, 2.04, 0.26, 0) 0s;
+
+				&:nth-child(2) {
+					text-indent: 1.6rem;
+				}
+			}
+		}
+
+		span {
+			position: absolute;
+			top: 0.9rem;
+			right: -1.3rem;
+			transform: rotate(32deg);
+			font-size: 0.9rem;
+			transition: all 1s cubic-bezier(0.8, 2.04, 0.26, 0) 0s;
+			color: rgba(128, 128, 128, 0.6);
+		}
+	}
+}

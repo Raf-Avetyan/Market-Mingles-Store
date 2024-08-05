@@ -1,0 +1,126 @@
+.wrapper {
+	display: flex;
+	min-height: 100vh;
+	align-items: center;
+	justify-content: center;
+	background-image: linear-gradient(
+		to right top,
+		#1db9ff,
+		#a2a0ff,
+		#fb7ad4,
+		#ff677a,
+		#f48603
+	);
+
+	.form {
+		display: flex;
+		flex-direction: column;
+		width: 380px;
+		padding: 2rem 1.5rem;
+		min-height: 420px;
+		border-radius: 0.8rem;
+		border: 2px solid rgba(255, 255, 255, 0.05);
+		background: rgba(0, 0, 0, 0.65);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		box-shadow: 10px 20px 25px rgba(0, 0, 0, 0.3);
+
+		.title {
+			text-align: center;
+			margin-bottom: 2rem;
+			color: whitesmoke;
+			user-select: none;
+		}
+
+		.inputs {
+			flex: 1 1 auto;
+
+			input {
+				padding: 0.8rem;
+				border: none;
+				width: 100%;
+				font-family: inherit;
+				background: transparent;
+				border-bottom: 1px solid rgba(245, 245, 245, 0.9);
+				margin-bottom: .4rem;
+				outline: none;
+
+				&.error {
+					border-bottom: 1px solid rgb(255, 96, 38);
+					animation: shake 1s linear 1;
+				}
+
+				&::placeholder {
+					color: rgba(245, 245, 245, 0.8);
+               transition: all .16s ease 0s;
+				}
+
+            &:focus::placeholder {
+               opacity: 0;
+            }
+			}
+
+			.inputError {
+				font-size: 0.8rem;
+				color: rgb(255, 96, 38);
+			}
+
+			.password {
+				position: relative;
+				.eyeIcon {
+					position: absolute;
+					top: 10px;
+					right: 8px;
+					cursor: pointer;
+				}
+			}
+		}
+
+		.button {
+			padding-block: 0.8rem;
+			background-color: rgb(3, 103, 244);
+			border: none;
+			border-radius: 0.4rem;
+			font-size: 1rem;
+			user-select: none;
+			cursor: pointer;
+			transition: all 0.23s ease 0s;
+
+			&:hover {
+				background-color: rgb(0, 92, 221);
+			}
+		}
+
+		.question {
+			user-select: none;
+			font-size: 0.9rem;
+			text-align: center;
+			color: rgba(215, 215, 215, 0.9);
+			padding-block: 0.8rem 0.5rem;
+			> span {
+				color: rgb(255, 255, 255);
+				cursor: pointer;
+				transition: all 0.23s ease 0s;
+
+				&:hover {
+					color: rgb(146, 191, 255);
+				}
+			}
+		}
+	}
+
+	@keyframes shake {
+		10%, 90% {
+			transform: translate(-4px, 0);
+		}
+		20%, 80% {
+			transform: translate(5px, 0);
+		}
+		30%, 50%, 70% {
+			transform: translate(-7px, 0);
+		}
+		40%, 60% {
+			transform: translate(7px, 0);
+		}
+	}
+}

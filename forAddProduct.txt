@@ -1,0 +1,115 @@
+'use client'
+
+import { Button } from '@mui/material'
+import { useMutation } from '@tanstack/react-query'
+import { useState } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
+
+import { Heading } from '@/components/ui/heading/Heading'
+
+import { TypeProductFormState } from '@/types/products.types'
+
+import styles from './Market.module.scss'
+import { productService } from '@/services/product.service'
+import { uploadService } from '@/services/upload.service'
+
+export const Market = () => {
+	const [image, setImage] = useState<File | null>(null)
+	// const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
+	const [productImageForChange, setProductImageForChange] = useState<string>('')
+	const [productSelectedImage, setProductSelectedImage] = useState<string>('')
+	const [isDoneProductNewImage, setIsDoneProductNewImage] =
+		useState<boolean>(false)
+	const [fileValue, setFileValue] = useState('')
+
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { errors }
+	} = useForm<TypeProductFormState>({
+		mode: 'onChange'
+	})
+
+	const { mutate: createProductMutate, data: productData } = useMutation({
+		mutationKey: ['create product'],
+		mutationFn: (data: {
+			data: Omit<TypeProductFormState, 'imagePath'>
+			productImage: FormData
+		}) => productService.create(data)
+	})
+
+	const onSubmit: SubmitHandler<TypeProductFormState> = data => {
+		const formData = new FormData()
+		if (image) formData.append('productImage', image)
+
+		createProductMutate({ data: data, productImage: formData })
+	}
+
+	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (e.target.files) {
+			setProductImageForChange(URL.createObjectURL(e.target.files[0]))
+			// setModalIsOpen(true)
+			setImage(e.target.files[0])
+		}
+	}
+
+	return (
+		<div className={styles.market}>
+			<Heading title='Market' />
+			<form
+				onSubmit={handleSubmit(onSubmit)}
+				className={styles.form}
+			>
+				<div className={styles.inputs}>
+					<div>
+						<input
+							type='text'
+							placeholder='Name'
+							{...register('name', { required: true })}
+							autoComplete='off'
+						/>
+						<input
+							type='text'
+							placeholder='Description'
+							{...register('description', { required: true })}
+							autoComplete='off'
+						/>
+						<input
+							type='text'
+							placeholder='Price'
+							{...register('price', { required: true })}
+							autoComplete='off'
+						/>
+					</div>
+					<div>
+						<input
+							type='file'
+							onChange={handleFileChange}
+							value={fileValue}
+							id='image'
+						/>
+						<label
+							htmlFor='image'
+							className={styles.labelImage}
+							onClick={() => {
+								setFileValue('')
+							}}
+						>
+							Change
+						</label>
+					</div>
+				</div>
+				<div>
+					<Button
+						type='submit'
+						// disabled={isPending}
+						className={styles.button}
+					>
+						Create
+					</Button>
+				</div>
+			</form>
+		</div>
+	)
+}

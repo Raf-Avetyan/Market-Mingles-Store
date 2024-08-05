@@ -1,0 +1,72 @@
+@import './src/app/scss/colors';
+
+.imagesWrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	display: grid;
+	align-content: center;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 0.4rem;
+	padding: 0.4rem;
+	z-index: 30;
+	background-color: rgba(0, 0, 0, 0.7);
+
+	&.three {
+		grid-template-rows: repeat(2, 1fr);
+	}
+
+	&.more {
+
+	}
+
+	.image {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		cursor: pointer;
+
+		&.hidden {
+			display: none;
+		}
+
+		&.active {
+			border: 3px solid $blue;
+			border-radius: .6rem;
+		}
+
+		> img {
+			object-fit: cover !important;
+			object-position: center !important;
+			width: 100%;
+			border-radius: .6rem;
+			height: 100%;
+		}
+	}
+
+	.more {
+		background-color: $bgDark;
+		border-radius: .6rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 2px solid $green;
+		cursor: pointer;
+
+		p {
+			color: $green;
+			font-size: 3rem;
+			display: flex;
+			align-items: center;
+
+			span {
+				font-size: 2.5rem;
+				padding-right: .2rem;
+			}
+		}
+	}
+}

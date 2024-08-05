@@ -1,0 +1,13 @@
+.loader {
+   animation: rotate 1s ease-in-out infinite;
+   color: whitesmoke;
+}
+
+@keyframes rotate {
+   from {
+      transform: rotate(0deg);
+   }
+   to {
+      transform: rotate(360deg);
+   }
+}

@@ -1,0 +1,85 @@
+@import '/src/app/scss/colors';
+
+.profile {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	position: relative;
+	background-color: rgba(245, 245, 245, 0.05);
+	padding: 0.6rem 1rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	user-select: none;
+
+	&.light {
+		background-color: var(--bgDark);
+		color: var(--text);
+	}
+
+	.avatarPath {
+		.skeletonCircle {
+			flex: 1 0 auto;
+			background-color: $skeleton;
+		}
+	}
+
+	.userAvatar {
+		width: 60px;
+		height: 60px;
+		object-fit: cover;
+		object-position: center;
+		background-color: $blue;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.6rem;
+	}
+
+	.skeletonCircle {
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		background-color: $skeleton;
+	}
+
+	.info {
+		display: flex;
+		flex-direction: column;
+
+		> span {
+			font-size: 0.9rem;
+
+			&.userId {
+				font-size: 0.8rem;
+				color: gray;
+			}
+
+			&.username {
+				font-size: 1.4rem;
+			}
+
+			&.email {
+				font-size: 0.9rem;
+			}
+		}
+	}
+	.linkIcon {
+		position: absolute;
+		top: 8px;
+		right: 8px;
+		color: $green;
+	}
+}
+
+.skeletonBox {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 0.2rem 1rem;
+
+	.skeleton,
+	.skeletonCircle {
+		background-color: $skeleton;
+	}
+}

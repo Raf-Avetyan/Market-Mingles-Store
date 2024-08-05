@@ -1,0 +1,23 @@
+.footer {
+	color: rgba(245, 245, 245, 0.25);
+	font-size: 0.8rem;
+	text-align: center;
+	padding: 1rem;
+	user-select: none;
+
+   &.small {
+      font-size: 0.45rem;
+   }
+
+	&.light {
+		color: var(--foreground-rgb);
+
+		> a {
+			color: var(--green);
+		}
+	}
+
+	> a {
+		color: rgba(172, 255, 47, 0.4);
+	}
+}

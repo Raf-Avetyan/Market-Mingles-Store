@@ -1,0 +1,113 @@
+@import './src/app/scss/colors';
+
+.avatarSide {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	.avatar {
+		position: relative;
+
+		&.opacity {
+			.userAvatar {
+				filter: brightness(30%);
+			}
+		}
+	}
+
+	&.light {
+		.labelAvatar {
+			background-color: var(--bgDark);
+			color: var(--text);
+
+			&:hover {
+				opacity: 0.9;
+				background-color: var(--bgDark);
+			}
+		}
+
+		.userAvatar {
+			outline: 1px solid rgba(0, 0, 0, 0.4);
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+		}
+	}
+
+	input[type='file'] {
+		&.hidden {
+			display: none;
+		}
+	}
+
+	.skeletonCircle {
+		width: 140px;
+		height: 140px;
+		border-radius: 50%;
+		background-color: $skeleton;
+	}
+
+	.userAvatar {
+		width: 180px;
+		height: 180px;
+		object-fit: cover;
+		object-position: center;
+		background-color: $blue;
+		border-radius: 50%;
+		display: flex;
+		outline: 1px solid rgba(245, 245, 245, 0.4);
+		box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+		border-radius: 50%;
+		outline-offset: 6px;
+		align-items: center;
+		justify-content: center;
+		user-select: none;
+		font-size: 3.6rem;
+		transition: all 0.23s ease 0s;
+		cursor: pointer;
+	}
+
+	.labelAvatar {
+		cursor: pointer;
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		top: 0;
+		left: 0;
+		border-radius: 50%;
+		background-color: transparent !important;
+		opacity: 0;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		transition: all 0.23s ease 0s;
+
+		&::before {
+			content: 'change';
+			background-color: rgba(17, 17, 17, 0.8);
+			padding: 0.2rem 1rem;
+			border-radius: 0.4rem;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			font-size: 1rem;
+			opacity: 0;
+			transform: translateX(-50%) scale(0);
+			transition: all 0.23s ease 0s;
+		}
+
+		&.visible {
+			opacity: 1;
+
+			&::before {
+				top: 25%;
+				opacity: 1;
+				transform: translateX(-50%) scale(1);
+			}
+		}
+
+		.cutomizeIcon {
+			transition: all 0.23s ease 0s;
+		}
+	}
+}

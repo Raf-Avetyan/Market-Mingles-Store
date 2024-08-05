@@ -1,0 +1,120 @@
+@import '/src/app/scss/colors';
+
+.sidebar {
+	border-right: 2px solid $bgDark;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--background-rgb);
+	position: relative;
+
+	&.light {
+		border-right: 2px solid var(--border);
+
+		.panelToggleBtn {
+			color: var(--green);
+			&:hover {
+				color: var(--green);
+			}
+		}
+	}
+
+	&.hidden {
+		.footer {
+			font-size: 0.4rem;
+		}
+	}
+
+	.menu {
+		display: flex;
+		flex-direction: column;
+		row-gap: 0.4rem;
+		padding: 3rem 1.2rem;
+
+		flex: 1 1 auto;
+		position: relative;
+
+		.skeletonWrapper {
+			display: flex;
+			flex-direction: column;
+			row-gap: 0.8rem;
+			padding: 0 1.2rem;
+
+			.skeletonBox {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+			}
+
+			.skeleton,
+			.skeletonRectangular {
+				background-color: $skeleton;
+			}
+
+			.skeleton {
+				flex-basis: 160px;
+				height: 35px;
+			}
+
+			.skeletonRectangular {
+				width: 30px;
+				height: 30px;
+				border-radius: 0.6rem;
+			}
+		}
+	}
+
+	.panelToggleBtn {
+		position: absolute;
+		top: 0.3rem;
+		right: 0.3rem;
+		color: rgba(172, 255, 47, 0.3);
+		cursor: pointer;
+		transition: all 0.23s ease-in-out 0s;
+
+		&:hover {
+			color: rgba(172, 255, 47, 0.6);
+			transform: rotateY(180deg);
+		}
+
+		button {
+			background-color: transparent;
+			border: none;
+			position: relative;
+
+			&:hover::after {
+				opacity: 1;
+				right: 1.6rem;
+				scale: 1;
+			}
+
+			&::after {
+				content: 'Logout';
+				background-color: rgba(128, 128, 128, 0.15);
+				padding: 0.2rem 0.5rem;
+				border-radius: 0.4rem;
+				opacity: 0;
+				scale: 0;
+				transition: all 0.23s ease 0s;
+				position: absolute;
+				font-family: var(--first-family);
+				top: -1px;
+				right: -1rem;
+			}
+		}
+	}
+
+	.resize {
+		width: 2px;
+		height: 100vh;
+		background-color: rgba(172, 255, 47, 0.1);
+		position: absolute;
+		top: 0;
+		right: -2px;
+		cursor: w-resize;
+
+		&.active {
+			background-color: rgba(172, 255, 47, 0.6);
+		}
+	}
+}

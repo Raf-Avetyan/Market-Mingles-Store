@@ -1,0 +1,153 @@
+@import './src/app/scss/colors';
+
+.singlePageSlider-container {
+	position: relative;
+	border-radius: 0.8rem 0 0 0.8rem;
+	overflow: hidden;
+
+	.singlePageSlider {
+		overflow: hidden;
+		height: 100%;
+		.slick-list {
+			height: 100%;
+			.slick-track {
+				height: 100%;
+				.slick-slide {
+					height: 100%;
+					div {
+						height: 100%;
+						img {
+							object-fit: cover;
+							object-position: center;
+							width: 100%;
+							min-height: 100%;
+							border-radius: 0.8rem 0 0 0.8rem;
+						}
+					}
+				}
+			}
+		}
+		.slick-arrow {
+			width: 32px;
+			height: 32px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: rgba(0, 0, 0, 0.6);
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+			border-radius: 50%;
+			scale: 0;
+			opacity: 0;
+			transition: all 0.23s ease 0s;
+			&::before {
+				display: none;
+			}
+			z-index: 50;
+			color: white;
+
+			&.slick-prev {
+				left: 8px !important;
+				svg {
+					scale: 1.2;
+					padding-right: 2px;
+					color: $green;
+				}
+			}
+
+			&.slick-next {
+				right: 8px !important;
+				svg {
+					scale: 1.2;
+					padding-left: 2px;
+					color: $green;
+				}
+			}
+		}
+
+		&:hover {
+			.slick-dots {
+				opacity: 1;
+				pointer-events: all;
+				visibility: visible;
+				transform: scaleY(1);
+			}
+			.slick-arrow {
+				scale: 1;
+				opacity: 1;
+			}
+		}
+
+		.slick-dots {
+			background-color: rgba(0, 0, 0, 0.6);
+			backdrop-filter: blur(1px);
+			display: flex !important;
+			align-items: center;
+			justify-content: center;
+			padding-top: 0.2rem;
+			bottom: 0px !important;
+			pointer-events: none;
+			opacity: 0;
+			visibility: hidden;
+			transform: scaleY(0);
+			transform-origin: bottom;
+			transition: all 0.23s ease 0s;
+
+			li {
+				margin: 0;
+				width: 20px;
+				height: 20px;
+
+				button {
+					width: 20px;
+					height: 20px;
+					&::before {
+						width: 18px !important;
+						height: 18px !important;
+						font-size: 0.7rem;
+						color: white;
+					}
+				}
+
+				&.slick-active {
+					button {
+						&::before {
+							color: $green;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.switchToImages {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		background-color: $bgDark;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.4rem;
+		border-radius: 0.4rem;
+		z-index: 50;
+		cursor: pointer;
+
+		&.light {
+			background-color: var(--text);
+			color: var(--foreground-rgb);
+		}
+	}
+
+	.imageShow {
+		opacity: 0;
+		pointer-events: none;
+		visibility: hidden;
+		transition: all 0.23s ease 0s;
+
+		&.active {
+			opacity: 1;
+			pointer-events: all;
+			visibility: visible;
+		}
+	}
+}
