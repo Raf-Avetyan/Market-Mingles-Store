@@ -3,8 +3,8 @@ const nextConfig = {
 	images: {
 		remotePatterns: [
 			{
-				protocol: 'https',
-				hostname: 'market-mingle-backend-b3bf644d7866.herokuapp.com',
+				protocol: 'http',
+				hostname: 'localhost',
 				port: '3000'
 			}
 		]
