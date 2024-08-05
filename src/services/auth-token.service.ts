@@ -14,7 +14,8 @@ export const saveTokenStorage = (accessToken: string) => {
 	Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
 		sameSite: 'None',
 		expires: 1,
-		secure: true
+		secure: true,
+		path: '/'
 	})
 }
 
