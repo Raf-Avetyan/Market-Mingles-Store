@@ -12,7 +12,7 @@ export const getAccessToken = () => {
 
 export const saveTokenStorage = (accessToken: string) => {
 	Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
-		sameSite: 'Strict',
+		sameSite: 'none',
 		domain: '.vercel.app',
 		expires: 1,
 		secure: true
