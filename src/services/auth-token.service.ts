@@ -13,7 +13,7 @@ export const getAccessToken = () => {
 export const saveTokenStorage = (accessToken: string) => {
 	Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
 		domain: 'market-mingle-backend-b3bf644d7866.herokuapp.com',
-		sameSite: 'strict',
+		sameSite: 'none',
 		expires: 1
 	})
 }
