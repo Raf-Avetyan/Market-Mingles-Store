@@ -8,8 +8,7 @@ import {
 import { authService } from '@/services/auth.service'
 
 const options: CreateAxiosDefaults = {
-	baseURL:
-		'https://market-mingle-backend-b3bf644d7866.herokuapp.com/api/products/api',
+	baseURL: 'https://market-mingle-backend-b3bf644d7866.herokuapp.com/api',
 	headers: {
 		'Content-Type': 'application/json'
 	},
