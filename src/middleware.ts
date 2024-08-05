@@ -12,6 +12,7 @@ export async function middleware(request: NextRequest, response: NextResponse) {
 
 	if (isAuthPage && refreshToken) {
 		return NextResponse.redirect(new URL(DASHBOARD_PAGES.HOME, url))
+		console.log('yes')
 	}
 
 	if (isAuthPage) {
@@ -19,6 +20,7 @@ export async function middleware(request: NextRequest, response: NextResponse) {
 	}
 
 	if (!refreshToken) {
+		console.log('no')
 		return NextResponse.redirect(new URL('/auth', request.url))
 	}
 
