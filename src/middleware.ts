@@ -11,8 +11,9 @@ export async function middleware(request: NextRequest, response: NextResponse) {
 	const isAuthPage = url.includes('/auth')
 
 	if (isAuthPage && refreshToken) {
-		return NextResponse.redirect(new URL(DASHBOARD_PAGES.HOME, url))
 		console.log('yes')
+
+		return NextResponse.redirect(new URL(DASHBOARD_PAGES.HOME, url))
 	}
 
 	if (isAuthPage) {
@@ -20,7 +21,6 @@ export async function middleware(request: NextRequest, response: NextResponse) {
 	}
 
 	if (!refreshToken) {
-		console.log('no')
 		return NextResponse.redirect(new URL('/auth', request.url))
 	}
 
