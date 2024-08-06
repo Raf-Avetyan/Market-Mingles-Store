@@ -6,10 +6,10 @@ import { useEffect } from 'react'
 import { DASHBOARD_PAGES } from '@/config/pages.config'
 
 export default function Page() {
-	const { replace } = useRouter()
+	const { push } = useRouter()
 
 	useEffect(() => {
-		replace(DASHBOARD_PAGES.HOME)
+		push(DASHBOARD_PAGES.HOME)
 	}, [])
 
 	return <div></div>
