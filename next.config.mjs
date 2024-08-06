@@ -9,8 +9,7 @@ const nextConfig = {
 			}
 		]
 	},
-	experimental: { missingSuspenseWithCSRBailout: false },
-	basePath: '/main'
+	experimental: { missingSuspenseWithCSRBailout: false }
 }
 
 export default nextConfig
