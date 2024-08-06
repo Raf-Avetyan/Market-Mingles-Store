@@ -10,17 +10,21 @@ export async function middleware(request: NextRequest, response: NextResponse) {
 
 	const isAuthPage = url.includes('/auth')
 
-	if (isAuthPage && refreshToken) {
-		return NextResponse.redirect(new URL(DASHBOARD_PAGES.HOME, url))
+	// if (isAuthPage && refreshToken) {
+	// 	return NextResponse.redirect(new URL(DASHBOARD_PAGES.HOME, url))
+	// }
+
+	if (refreshToken) {
+		console.log('yes')
 	}
 
-	if (isAuthPage) {
-		return NextResponse.next()
-	}
+	// if (isAuthPage) {
+	// 	return NextResponse.next()
+	// }
 
-	if (!refreshToken) {
-		return NextResponse.redirect(new URL('/auth', request.url))
-	}
+	// if (!refreshToken) {
+	// 	return NextResponse.redirect(new URL('/auth', request.url))
+	// }
 
 	return NextResponse.next()
 }
