@@ -32,11 +32,16 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
 		}
 
 		if (width >= 320 && width <= 650) {
-			onWidthChange(100)
+			onWidthChange(80)
 		}
 	}, [])
 
 	const onWidthChange = (width: number) => {
+		console.log(
+			`width: ${width} window.innerWidth: ${window.innerWidth} sidebarWidth: ${sidebarWidth} mainWidth: ${mainWidth}`
+		)
+		console.log((width / window.innerWidth) * (sidebarWidth + mainWidth))
+
 		const newSidebarWidth =
 			(width / window.innerWidth) * (sidebarWidth + mainWidth)
 		const newMainWidth = sidebarWidth + mainWidth - newSidebarWidth
