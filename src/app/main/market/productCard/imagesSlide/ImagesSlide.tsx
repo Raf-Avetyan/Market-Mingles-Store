@@ -8,7 +8,13 @@ import {
 	Image as LucideImage
 } from 'lucide-react'
 import Image from 'next/image'
-import React, { Dispatch, SetStateAction, useRef, useState } from 'react'
+import React, {
+	Dispatch,
+	SetStateAction,
+	useEffect,
+	useRef,
+	useState
+} from 'react'
 import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
@@ -44,6 +50,7 @@ export const ImagesSlide = ({
 }: IImagesSlideProps) => {
 	const [selectedIndex, setSelectedIndex] = useState(0)
 	const { themeMode } = useTheme()
+	const imageRefs = useRef<HTMLDivElement[]>([])
 
 	let sliderRef = useRef<Slider | null>(null)
 
@@ -101,6 +108,12 @@ export const ImagesSlide = ({
 		}
 	}
 
+	useEffect(() => {
+		imageRefs.current.forEach(el => {
+			console.log(el)
+		})
+	}, [imageRefs])
+
 	return (
 		<div className='slider-container'>
 			<Slider
@@ -111,6 +124,11 @@ export const ImagesSlide = ({
 				{imageUrls.map((img, index) => (
 					<div key={index}>
 						<Image
+							ref={el => {
+								if (el) {
+									imageRefs.current[index] = el
+								}
+							}}
 							src={img}
 							width={300}
 							height={160}
