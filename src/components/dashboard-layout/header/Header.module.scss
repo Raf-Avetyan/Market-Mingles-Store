@@ -1,13 +1,15 @@
 @import '/src/app/scss/colors';
+@import '/src/app/scss/mixins';
 
 .header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0.6rem 1.5rem;
+	padding-block: .6rem;
 	border-bottom: 2px solid $bgDark;
 	width: 100%;
 	position: relative;
+	@include adaptiv-value("padding-inline", 24, 8);
 
 	&.light {
 		border-bottom: 2px solid var(--border);
@@ -16,6 +18,6 @@
 	.right {
 		display: flex;
 		align-items: center;
-		gap: 1.5rem;
+		@include adaptiv-value("gap", 50, 5);
 	}
 }

@@ -1,4 +1,6 @@
 @import '/src/app/scss/colors';
+@import '/src/app/scss/mixins';
+@import '/src/app/scss/screens';
 
 .profile {
 	display: flex;
@@ -10,6 +12,16 @@
 	border-radius: 0.5rem;
 	cursor: pointer;
 	user-select: none;
+
+	@media (max-width: $xl) {
+		border-radius: 50%;
+		padding: 0.2rem;
+
+		&.light {
+			background-color: rgb(240, 240, 240) !important;
+			border: 1px solid var(--border);
+		}
+	}
 
 	&.light {
 		background-color: var(--bgDark);
@@ -24,9 +36,9 @@
 	}
 
 	.userAvatar {
-		width: 60px;
-		height: 60px;
 		object-fit: cover;
+		@include adaptiv-value('width', 60, 55);
+		@include adaptiv-value('height', 60, 55);
 		object-position: center;
 		background-color: $blue;
 		border-radius: 50%;
@@ -52,16 +64,26 @@
 
 			&.userId {
 				font-size: 0.8rem;
+				word-break: keep-all;
+				text-wrap: nowrap;
+				@include adaptiv-value('font-size', 14, 12);
+
 				color: gray;
 			}
 
 			&.username {
 				font-size: 1.4rem;
+				@include adaptiv-value('font-size', 34, 18);
 			}
 
 			&.email {
 				font-size: 0.9rem;
+				@include adaptiv-value('font-size', 14, 12);
 			}
+		}
+
+		@media (max-width: $xl) {
+			display: none;
 		}
 	}
 	.linkIcon {
@@ -69,6 +91,10 @@
 		top: 8px;
 		right: 8px;
 		color: $green;
+
+		@media (max-width: $xl) {
+			display: none;
+		}
 	}
 }
 

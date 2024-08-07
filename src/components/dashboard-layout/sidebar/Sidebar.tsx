@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import classNames from 'classnames'
 import { PanelLeftOpen, PanelRightOpen } from 'lucide-react'
 import { usePathname } from 'next/navigation'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { Footer } from '@/components/ui/footer/Footer'
 import { Logo } from '@/components/ui/logo/Logo'
@@ -70,6 +70,12 @@ export const Sidebar = ({ onWidthChange, sidebarWidth }: SidebarProps) => {
 		document.removeEventListener('mousemove', handleMouseMove)
 		document.removeEventListener('mouseup', handleMouseUp)
 	}
+
+	useEffect(() => {
+		if (window.innerWidth <= 650) {
+			onWidthChange(100)
+		}
+	}, [])
 
 	return (
 		<aside
