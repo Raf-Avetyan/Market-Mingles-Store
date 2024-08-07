@@ -117,6 +117,7 @@ export const Sidebar = ({
 								pathname={pathname}
 								sidebarWidth={sidebarWidth}
 								themeMode={themeMode}
+								onWidthChange={onWidthChange}
 							/>
 						))
 				) : (

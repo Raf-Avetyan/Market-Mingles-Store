@@ -14,13 +14,15 @@ interface IMenuProps {
 	pathname: string
 	sidebarWidth: number
 	themeMode: string
+	onWidthChange: (newWidth: number) => void
 }
 
 export const MenuItem = ({
 	item,
 	pathname,
 	sidebarWidth,
-	themeMode
+	themeMode,
+	onWidthChange
 }: IMenuProps) => {
 	const [hoveredItemName, setHoveredItemName] = useState('')
 
@@ -42,6 +44,7 @@ export const MenuItem = ({
 			})}
 			onMouseEnter={() => handleMouseEnter(item.name)}
 			onMouseLeave={handleMouseLeave}
+			onClick={() => onWidthChange(10)}
 		>
 			<span className={hoveredItemName === item.name ? styles.active : ''}>
 				{item.name}
