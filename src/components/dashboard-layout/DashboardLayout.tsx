@@ -14,10 +14,11 @@ import { Sidebar } from './sidebar/Sidebar'
 export default function DashboardLayout({ children }: PropsWithChildren) {
 	const [sidebarWidth, setSidebarWidth] = useState(1.4)
 	const [mainWidth, setMainWidth] = useState(6)
-	const [fullWidth, setFullWidth] = useState(0)
+	const [fullWidth, setFullWidth] = useState(1)
 	const { themeMode } = useTheme()
 
 	useEffect(() => {
+		const width = window.innerWidth
 		setFullWidth(window.innerWidth)
 
 		const storeSidebarWidth = localStorage.getItem('sidebarWidth')
@@ -29,10 +30,15 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
 			setSidebarWidth(newSidebarWidth)
 			setMainWidth(newMainWidth)
 		}
+
+		if (width >= 320 && width <= 650) {
+			onWidthChange(100)
+		}
 	}, [])
 
 	const onWidthChange = (width: number) => {
-		const newSidebarWidth = (width / fullWidth) * (sidebarWidth + mainWidth)
+		const newSidebarWidth =
+			(width / window.innerWidth) * (sidebarWidth + mainWidth)
 		const newMainWidth = sidebarWidth + mainWidth - newSidebarWidth
 
 		setSidebarWidth(Number(newSidebarWidth.toFixed(1)))
