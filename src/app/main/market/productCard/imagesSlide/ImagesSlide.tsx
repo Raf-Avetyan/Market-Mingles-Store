@@ -50,10 +50,10 @@ export const ImagesSlide = ({
 }: IImagesSlideProps) => {
 	const [selectedIndex, setSelectedIndex] = useState(0)
 	const { themeMode } = useTheme()
-	const imageRef = useRef<HTMLDivElement | null>(null)
+	const imageRefs = useRef<(HTMLDivElement | null)[]>([])
 	const [imageHeight, setImageHeight] = useState('')
 
-	let sliderRef = useRef<Slider | null>(null)
+	const sliderRef = useRef<Slider | null>(null)
 
 	const settings: Settings = {
 		dots: true,
@@ -110,13 +110,17 @@ export const ImagesSlide = ({
 	}
 
 	useEffect(() => {
-		setImageHeight(window.getComputedStyle(imageRef.current as Element).height)
+		if (imageRefs.current[0]) {
+			setImageHeight(window.getComputedStyle(imageRefs.current[0]!).height)
+		}
 	}, [])
 
 	useEffect(() => {
-		if (imageRef.current) {
-			imageRef.current.style.height = imageHeight
-		}
+		imageRefs.current.forEach(ref => {
+			if (ref) {
+				ref.style.height = imageHeight
+			}
+		})
 	}, [imageHeight])
 
 	return (
@@ -129,7 +133,9 @@ export const ImagesSlide = ({
 				{imageUrls.map((img, index) => (
 					<div
 						key={index}
-						ref={imageRef}
+						ref={el => {
+							imageRefs.current[index] = el
+						}}
 					>
 						<Image
 							src={img}
