@@ -55,7 +55,6 @@ export const ImagesSlide = ({
 		nextArrow: <SampleNextArrow />,
 		prevArrow: <SamplePrevArrow />,
 		autoplay: true,
-		centerMode: true,
 		autoplaySpeed: 8000,
 		afterChange: current => setSelectedIndex(current)
 	}
