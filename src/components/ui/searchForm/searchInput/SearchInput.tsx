@@ -1,4 +1,4 @@
-'se client'
+'use client'
 
 import { useQuery } from '@tanstack/react-query'
 import classNames from 'classnames'
