@@ -47,13 +47,7 @@ export const ImagesShow = ({
 					}
 					key={`${imgUrl}-${index}`}
 				>
-					<Image
-						src={imgUrl}
-						alt=''
-						width={300}
-						height={160}
-						priority
-					/>
+					<img src={imgUrl} />
 				</div>
 			))}
 			{imageUrls.length > 4 ? (
