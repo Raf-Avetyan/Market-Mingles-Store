@@ -9,9 +9,11 @@
 			height: 100%;
 			.slick-track {
 				height: 100%;
+				display: flex !important;
 				min-width: 2000px;
 				.slick-slide {
-					height: 100%;
+					display: flex !important; 
+					height: auto;
 					div {
 						height: 100%;
 					}
