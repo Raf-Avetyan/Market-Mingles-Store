@@ -111,11 +111,13 @@ export const ImagesSlide = ({
 
 	useEffect(() => {
 		if (imageRefs.current[0]) {
-			setImageHeight(window.getComputedStyle(imageRefs.current[0]!).height)
+			const height = window.getComputedStyle(imageRefs.current[0]!).height
+			setImageHeight(height)
 		}
 	}, [])
 
 	useEffect(() => {
+		console.log('Setting image height:', imageHeight)
 		imageRefs.current.forEach(ref => {
 			if (ref) {
 				ref.style.height = imageHeight
