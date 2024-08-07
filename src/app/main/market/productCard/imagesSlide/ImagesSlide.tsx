@@ -112,14 +112,10 @@ export const ImagesSlide = ({
 						key={index}
 						className='image-container'
 					>
-						<Image
+						<img
 							src={img}
-							width={300}
-							height={160}
-							alt=''
 							onLoad={onImageLoad}
 							style={{ display: isLoadingImage ? 'none' : 'block' }}
-							priority
 							onClick={handleToSinglePage}
 						/>
 					</div>
