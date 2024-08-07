@@ -146,7 +146,6 @@ export const ImagesSlide = ({
 							height={160}
 							alt=''
 							onLoad={onImageLoad}
-							style={{ display: isLoadingImage ? 'none' : 'block' }}
 							priority
 							onClick={handleToSinglePage}
 						/>
