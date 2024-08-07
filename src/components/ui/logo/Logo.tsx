@@ -39,7 +39,7 @@ export const Logo = ({ sidebarWidth }: ILogoProps) => {
 							<p key={index}>{word}</p>
 						))}
 				</h1>
-				<span>beta</span>
+				<span className={styles.beta}>beta</span>
 			</Link>
 		</div>
 	)

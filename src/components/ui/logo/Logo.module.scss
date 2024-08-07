@@ -8,6 +8,14 @@
 
 	&.light {
 		border-bottom: 2px solid var(--border);
+
+		h1 {
+			p {
+				> span {
+					color: var(--green);
+				}
+			}
+		}
 	}
 
 	&.hidden {
@@ -40,12 +48,12 @@
 				transform: translateX(1.5rem);
 			}
 			> p {
-				transform: translateX(-1.5rem);
+				transform: translateX(-0.8rem);
 			}
 		}
 
-		span {
-			transform: translate(-0.6rem, 1.2rem) rotate(-32deg);
+		.beta {
+			transform: translate(0rem, 0.6rem) rotate(-65deg);
 		}
 	}
 
@@ -67,18 +75,23 @@
 			p {
 				line-height: 1;
 				transition: all 1s cubic-bezier(0.8, 2.04, 0.26, 0) 0s;
+				position: relative;
 
 				&:nth-child(2) {
-					text-indent: 1.6rem;
+					text-indent: 1rem;
+				}
+
+				> span {
+					color: $green;
 				}
 			}
 		}
 
-		span {
+		.beta {
 			position: absolute;
 			top: 0.9rem;
 			right: -1.3rem;
-			transform: rotate(32deg);
+			transform: rotate(38deg);
 			font-size: 0.9rem;
 			transition: all 1s cubic-bezier(0.8, 2.04, 0.26, 0) 0s;
 			color: rgba(128, 128, 128, 0.6);
