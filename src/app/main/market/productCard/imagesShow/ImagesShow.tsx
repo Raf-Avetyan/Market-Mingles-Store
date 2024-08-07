@@ -29,7 +29,7 @@ export const ImagesShow = ({
 	return (
 		<div
 			className={classNames(styles.imagesWrapper, {
-				[styles.one]: imageUrls.length === 2,
+				[styles.one]: imageUrls.length === 1,
 				[styles.two]: imageUrls.length === 2,
 				[styles.three]: imageUrls.length === 3,
 				[styles.four]: imageUrls.length === 4,
