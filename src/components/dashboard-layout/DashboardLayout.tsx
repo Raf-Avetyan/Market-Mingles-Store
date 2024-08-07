@@ -55,7 +55,9 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
 			style={{
 				gridTemplateColumns:
 					sidebarWidth < 1.4
-						? `90px ${mainWidth}fr`
+						? fullWidth <= 425
+							? `80px ${mainWidth}fr`
+							: `90px ${mainWidth}fr`
 						: `${sidebarWidth}fr ${mainWidth}fr`
 			}}
 		>

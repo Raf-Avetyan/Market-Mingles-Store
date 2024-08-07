@@ -1,10 +1,22 @@
 @import '/src/app/scss/colors';
+@import '/src/app/scss/screens';
+@import '/src/app/scss/mixins';
 
 .logo {
 	border-bottom: 2px solid $bgDark;
 	width: 100%;
-	padding: 1.5rem 2rem 1.5rem 1.3rem;
+	padding: 1.5rem 2rem 1.5rem 1.2rem;
 	user-select: none;
+
+	@media (max-width: $ld) {
+		padding: 0.8rem 0rem 0.6rem 0.9rem;
+		a {
+			img {
+				width: 52px;
+				height: 52px;
+			}
+		}
+	}
 
 	&.light {
 		border-bottom: 2px solid var(--border);
@@ -21,6 +33,14 @@
 	&.hidden {
 		h1 {
 			display: none;
+			@media (max-width: $ld) {
+				a {
+					img {
+						width: 40px;
+						height: 40px;
+					}
+				}
+			}
 		}
 		span {
 			display: none;
@@ -60,17 +80,20 @@
 	> a {
 		display: inline-flex;
 		align-items: center;
-		column-gap: 1.2rem;
+		@include adaptiv-value("column-gap", 18, 14);
 		position: relative;
 
 		img {
 			object-fit: contain;
 			object-position: center;
 			transition: all 1s cubic-bezier(0.8, 2.04, 0.26, 0) 0s;
+
+			@include adaptiv-value("width", 65, 50);
+			@include adaptiv-value("height", 65, 50);
 		}
 
 		h1 {
-			font-size: 1.8rem;
+			@include adaptiv-value("font-size", 30, 22);
 
 			p {
 				line-height: 1;
@@ -92,7 +115,7 @@
 			top: 0.9rem;
 			right: -1.3rem;
 			transform: rotate(38deg);
-			font-size: 0.9rem;
+			@include adaptiv-value("font-size", 16, 12);
 			transition: all 1s cubic-bezier(0.8, 2.04, 0.26, 0) 0s;
 			color: rgba(128, 128, 128, 0.59);
 		}

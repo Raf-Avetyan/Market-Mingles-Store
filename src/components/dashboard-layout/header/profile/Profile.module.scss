@@ -73,7 +73,7 @@
 
 			&.username {
 				font-size: 1.4rem;
-				@include adaptiv-value('font-size', 34, 18);
+				@include adaptiv-value('font-size', 28, 18);
 			}
 
 			&.email {

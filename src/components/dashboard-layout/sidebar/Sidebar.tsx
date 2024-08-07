@@ -101,7 +101,13 @@ export const Sidebar = ({
 				) : (
 					<div
 						className={styles.panelToggleBtn}
-						onClick={() => onWidthChange(300)}
+						onClick={() => {
+							if (fullWidth <= 650) {
+								onWidthChange(260)
+							} else {
+								onWidthChange(300)
+							}
+						}}
 					>
 						<PanelLeftOpen />
 					</div>

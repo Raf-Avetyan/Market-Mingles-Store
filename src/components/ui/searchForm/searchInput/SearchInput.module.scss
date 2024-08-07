@@ -1,5 +1,6 @@
 @import '/src/app/scss/colors';
 @import '/src/app/scss/mixins';
+@import '/src/app/scss/screens';
 
 .select {
 	cursor: pointer;
@@ -63,7 +64,7 @@
 		}
 
 		&::placeholder {
-			@include adaptiv-value("font-size", 19, 14);
+			@include adaptiv-value('font-size', 19, 14);
 		}
 	}
 
@@ -79,11 +80,17 @@
 		max-height: 240px;
 		transform-origin: top center;
 		position: absolute;
-		top: 50px;
+		top: 60px;
 		left: 0;
 		width: 100%;
+		min-width: 200px;
 		border-radius: 0.4rem;
 		z-index: 99;
+		direction: rtl;
+
+		@media (max-width: $md) {
+			left: -.8rem;
+		}
 
 		&::-webkit-scrollbar {
 			width: 10px;
@@ -109,9 +116,12 @@
 		span {
 			display: block;
 			border-radius: 0.4rem;
-			padding: 0.5rem 0.8rem;
+			padding: 0.5rem;
 			transition: all 0.23s ease 0s;
 			font-size: 1rem;
+			text-wrap: nowrap;
+			word-break: keep-all;
+			direction: ltr;
 
 			&:hover {
 				background-color: #333;
