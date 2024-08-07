@@ -2,17 +2,23 @@
 
 .slider-container {
 	position: relative;
-	.slider {
+	.product-slider {
+		overflow: hidden;
+		height: 100%;
 		.slick-list {
+			height: 100%;
 			.slick-track {
+				height: 100%;
 				min-width: 2000px;
 				.slick-slide {
+					height: 100%;
 					div {
+						height: 100%;
 						img {
-							min-height: 180px;
 							object-fit: cover;
 							object-position: center;
 							width: 100%;
+							min-height: 100%;
 						}
 					}
 				}
@@ -81,7 +87,7 @@
 			transform-origin: bottom;
 			transition: all 0.23s ease 0s;
 			z-index: 0;
-			border-radius: 0 0 .4rem .4rem;
+			border-radius: 0 0 0.4rem 0.4rem;
 
 			li {
 				margin: 0;
