@@ -135,18 +135,15 @@ export const ImagesSlide = ({
 			>
 				{imageUrls.map((img, index) => (
 					<div key={index}>
-						<Image
+						<img
 							ref={el => {
 								if (el) {
 									imageRefs.current[index] = el
 								}
 							}}
 							src={img}
-							width={300}
-							height={160}
 							alt=''
 							onLoad={onImageLoad}
-							priority
 							onClick={handleToSinglePage}
 						/>
 					</div>
