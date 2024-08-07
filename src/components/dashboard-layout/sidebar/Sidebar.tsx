@@ -21,9 +21,14 @@ import { menuItemService } from '@/services/menu-item.service'
 interface SidebarProps {
 	onWidthChange: (newWidth: number) => void
 	sidebarWidth: number
+	fullWidth: number
 }
 
-export const Sidebar = ({ onWidthChange, sidebarWidth }: SidebarProps) => {
+export const Sidebar = ({
+	onWidthChange,
+	sidebarWidth,
+	fullWidth
+}: SidebarProps) => {
 	const isResizing = useRef(false)
 	const [isResizingSidebar, setIsResizingSidebar] = useState(false)
 	const { themeMode, setThemeMode } = useTheme()
@@ -83,7 +88,13 @@ export const Sidebar = ({ onWidthChange, sidebarWidth }: SidebarProps) => {
 				{sidebarWidth >= 1.4 ? (
 					<div
 						className={styles.panelToggleBtn}
-						onClick={() => onWidthChange(100)}
+						onClick={() => {
+							if (fullWidth <= 650) {
+								onWidthChange(10)
+							} else {
+								onWidthChange(100)
+							}
+						}}
 					>
 						<PanelRightOpen />
 					</div>

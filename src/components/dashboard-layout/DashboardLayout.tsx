@@ -19,7 +19,7 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
 
 	useEffect(() => {
 		const width = window.innerWidth
-		setFullWidth(window.innerWidth)
+		setFullWidth(width)
 
 		const storeSidebarWidth = localStorage.getItem('sidebarWidth')
 
@@ -62,6 +62,7 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
 			<Sidebar
 				onWidthChange={onWidthChange}
 				sidebarWidth={sidebarWidth}
+				fullWidth={fullWidth}
 			/>
 			<main className={styles.main}>
 				<Header />
