@@ -8,7 +8,13 @@ import {
 	Image as LucideImage
 } from 'lucide-react'
 import Image from 'next/image'
-import React, { Dispatch, SetStateAction, useRef, useState } from 'react'
+import React, {
+	Dispatch,
+	SetStateAction,
+	useEffect,
+	useRef,
+	useState
+} from 'react'
 import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
@@ -46,6 +52,7 @@ export const ImagesSlide = ({
 	const { themeMode } = useTheme()
 
 	let sliderRef = useRef<Slider | null>(null)
+	let imageRefs = useRef<HTMLImageElement[]>([])
 
 	const settings: Settings = {
 		dots: true,
@@ -101,6 +108,24 @@ export const ImagesSlide = ({
 		}
 	}
 
+	useEffect(() => {
+		const handleResize = () => {
+			const maxHeight = Math.max(
+				...imageRefs.current.map(img => img.getBoundingClientRect().height)
+			)
+			imageRefs.current.forEach(img => {
+				img.parentElement!.style.height = `${maxHeight}px`
+			})
+		}
+
+		window.addEventListener('resize', handleResize)
+		handleResize()
+
+		return () => {
+			window.removeEventListener('resize', handleResize)
+		}
+	}, [imageUrls, isLoadingImage])
+
 	return (
 		<div className='slider-container'>
 			<Slider
@@ -111,6 +136,11 @@ export const ImagesSlide = ({
 				{imageUrls.map((img, index) => (
 					<div key={index}>
 						<Image
+							ref={el => {
+								if (el) {
+									imageRefs.current[index] = el
+								}
+							}}
 							src={img}
 							width={300}
 							height={160}
