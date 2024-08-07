@@ -20,6 +20,7 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
 	useEffect(() => {
 		const width = window.innerWidth
 		setFullWidth(window.innerWidth)
+
 		const storeSidebarWidth = localStorage.getItem('sidebarWidth')
 
 		if (storeSidebarWidth) {
