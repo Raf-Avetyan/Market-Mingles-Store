@@ -110,7 +110,7 @@ export const ImagesSlide = ({
 
 	useEffect(() => {
 		imageRefs.current.forEach(el => {
-			console.log(el)
+			el.style.height = '400px'
 		})
 	}, [imageRefs])
 
