@@ -83,10 +83,7 @@ export const Sidebar = ({
 				[styles.light]: themeMode === 'light'
 			})}
 		>
-			<Logo
-				sidebarWidth={sidebarWidth}
-				fullWidth={fullWidth}
-			/>
+			<Logo sidebarWidth={sidebarWidth} />
 			<div className={styles.menu}>
 				{sidebarWidth >= 1.4 ? (
 					<div
@@ -143,7 +140,7 @@ export const Sidebar = ({
 											variant='rectangular'
 											className={styles.skeletonRectangular}
 										/>
-										{sidebarWidth > 1.4 ? (
+										{sidebarWidth > 1.4 || document.body.clientWidth >= 650 ? (
 											<Skeleton
 												animation='wave'
 												className={styles.skeleton}
