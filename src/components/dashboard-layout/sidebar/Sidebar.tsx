@@ -143,7 +143,7 @@ export const Sidebar = ({
 											variant='rectangular'
 											className={styles.skeletonRectangular}
 										/>
-										{fullWidth > 650 ? (
+										{sidebarWidth > 1.4 ? (
 											<Skeleton
 												animation='wave'
 												className={styles.skeleton}

@@ -33,7 +33,7 @@ export const Logo = ({ sidebarWidth, fullWidth }: ILogoProps) => {
 					height={60}
 					draggable={false}
 				/>
-				{fullWidth > 650 || sidebarWidth > 1.4 ? (
+				{sidebarWidth > 1.4 ? (
 					<>
 						<h1>
 							{SITE_NAME.toUpperCase()
