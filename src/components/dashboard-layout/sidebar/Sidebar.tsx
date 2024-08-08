@@ -83,7 +83,10 @@ export const Sidebar = ({
 				[styles.light]: themeMode === 'light'
 			})}
 		>
-			<Logo sidebarWidth={sidebarWidth} />
+			<Logo
+				sidebarWidth={sidebarWidth}
+				fullWidth={fullWidth}
+			/>
 			<div className={styles.menu}>
 				{sidebarWidth >= 1.4 ? (
 					<div
@@ -103,7 +106,7 @@ export const Sidebar = ({
 						className={styles.panelToggleBtn}
 						onClick={() => {
 							if (fullWidth <= 650) {
-								onWidthChange(260)
+								onWidthChange(240)
 							} else {
 								onWidthChange(300)
 							}
@@ -140,10 +143,12 @@ export const Sidebar = ({
 											variant='rectangular'
 											className={styles.skeletonRectangular}
 										/>
-										<Skeleton
-											animation='wave'
-											className={styles.skeleton}
-										/>
+										{fullWidth > 650 ? (
+											<Skeleton
+												animation='wave'
+												className={styles.skeleton}
+											/>
+										) : null}
 									</Box>
 								))
 						]}

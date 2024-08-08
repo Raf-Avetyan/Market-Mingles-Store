@@ -107,5 +107,16 @@
 	.skeleton,
 	.skeletonCircle {
 		background-color: $skeleton;
+		flex: 1 0 auto;
+	}
+
+	@media (max-width: $xl) {
+		display: block;
+		width: 100px;
+
+		.skeleton {
+			display: none;
+		}
+
 	}
 }

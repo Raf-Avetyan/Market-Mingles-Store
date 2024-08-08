@@ -84,8 +84,8 @@ export const Profile = () => {
 				>
 					<Skeleton
 						variant='circular'
-						width={60}
-						height={60}
+						width={65}
+						height={65}
 						animation='wave'
 						className={styles.skeletonCircle}
 					/>

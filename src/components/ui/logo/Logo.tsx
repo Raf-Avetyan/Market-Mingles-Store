@@ -12,9 +12,10 @@ import { SITE_NAME } from '@/constants/ceo.constants'
 
 interface ILogoProps {
 	sidebarWidth: number
+	fullWidth: number
 }
 
-export const Logo = ({ sidebarWidth }: ILogoProps) => {
+export const Logo = ({ sidebarWidth, fullWidth }: ILogoProps) => {
 	const { themeMode } = useTheme()
 
 	return (
@@ -32,14 +33,18 @@ export const Logo = ({ sidebarWidth }: ILogoProps) => {
 					height={60}
 					draggable={false}
 				/>
-				<h1>
-					{SITE_NAME.toUpperCase()
-						.split(' ')
-						.map((word, index) => (
-							<p key={index}>{word}</p>
-						))}
-				</h1>
-				<span className={styles.beta}>beta</span>
+				{fullWidth > 650 || sidebarWidth > 1.4 ? (
+					<>
+						<h1>
+							{SITE_NAME.toUpperCase()
+								.split(' ')
+								.map((word, index) => (
+									<p key={index}>{word}</p>
+								))}
+						</h1>
+						<span className={styles.beta}>beta</span>
+					</>
+				) : null}
 			</Link>
 		</div>
 	)

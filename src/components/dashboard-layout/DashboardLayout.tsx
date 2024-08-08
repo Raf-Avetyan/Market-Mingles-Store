@@ -14,7 +14,7 @@ import { Sidebar } from './sidebar/Sidebar'
 export default function DashboardLayout({ children }: PropsWithChildren) {
 	const [sidebarWidth, setSidebarWidth] = useState(1.4)
 	const [mainWidth, setMainWidth] = useState(6)
-	const [fullWidth, setFullWidth] = useState(1)
+	const [fullWidth, setFullWidth] = useState(window.innerWidth)
 	const { themeMode } = useTheme()
 
 	useEffect(() => {
@@ -67,7 +67,10 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
 				fullWidth={fullWidth}
 			/>
 			<main className={styles.main}>
-				<Header />
+				<Header
+					sidebarWidth={sidebarWidth}
+					fullWidth={fullWidth}
+				/>
 				<GlobalLoader />
 				{children}
 			</main>

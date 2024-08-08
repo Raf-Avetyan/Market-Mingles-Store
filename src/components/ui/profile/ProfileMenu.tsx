@@ -77,8 +77,8 @@ export const ProfileMenu = ({
 					</div>
 					<div className={styles.username}>{data?.username}</div>
 					<div className={styles.email}>{data?.email}</div>
+					<LogoutButton />
 				</div>
-				<LogoutButton />
 			</div>
 		</div>
 	)

@@ -32,7 +32,9 @@ export const SearchInput = ({
 	const { themeMode } = useTheme()
 	const [openDropdown, setOpenDropdown] = useState<boolean>(false)
 	const [categoryNames, setCategoryNames] = useState<string[]>()
+	const [isInputOpen, setIsInputOpen] = useState(false)
 	const selectRef = useRef<HTMLDivElement>(null)
+	const inputRef = useRef<HTMLInputElement | null>(null)
 
 	const { data: categories } = useQuery<string[]>({
 		queryKey: ['category names'],
@@ -43,6 +45,8 @@ export const SearchInput = ({
 		if (selectText !== 'Not found') {
 			setInputText(selectText)
 			setOpenDropdown(false)
+			setIsInputOpen(false)
+			inputRef.current?.blur()
 		}
 	}
 
@@ -58,6 +62,7 @@ export const SearchInput = ({
 		const handleClickOutside = (e: MouseEvent) => {
 			if (selectRef.current && !selectRef.current.contains(e.target as Node)) {
 				setOpenDropdown(false)
+				setIsInputOpen(false)
 			}
 		}
 
@@ -75,27 +80,41 @@ export const SearchInput = ({
 	return (
 		<div
 			className={classNames(styles.select, {
-				[styles.light]: themeMode === 'light'
+				[styles.light]: themeMode === 'light',
+				[styles.active]: isInputOpen
 			})}
 			ref={selectRef}
 		>
-			<input
-				className={styles.input}
-				onFocus={() => setOpenDropdown(true)}
-				onChange={e => handleInputChange(e)}
-				value={inputText ? inputText : ''}
-				placeholder='Search...'
-				onKeyDown={e => handleSearch(inputText ? inputText : '', e)}
-			/>
-			<button
-				type='submit'
-				className={styles.searchIcon}
-			>
-				<Search size={24} />
-			</button>
+			<div>
+				<input
+					className={classNames(styles.input, {
+						[styles.active]: isInputOpen && openDropdown
+					})}
+					ref={inputRef}
+					onFocus={() => setOpenDropdown(true)}
+					onChange={e => handleInputChange(e)}
+					value={inputText ? inputText : ''}
+					placeholder='Search...'
+					onKeyDown={e => handleSearch(inputText ? inputText : '', e)}
+				/>
+				<button
+					type='submit'
+					className={classNames(styles.searchIcon, {
+						[styles.active]: isInputOpen
+					})}
+					onClick={() => {
+						setIsInputOpen(!isInputOpen)
+						setOpenDropdown(!openDropdown)
+						inputRef.current?.focus()
+					}}
+				>
+					<Search size={24} />
+				</button>
+			</div>
 			<div
 				className={classNames(styles.dropdown, {
-					[styles.active]: openDropdown
+					[styles.active]: openDropdown,
+					[styles.smallDeviceActive]: openDropdown && isInputOpen
 				})}
 			>
 				{categoryNames?.map((item, index) => (

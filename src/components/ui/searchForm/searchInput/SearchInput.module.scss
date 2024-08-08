@@ -10,6 +10,18 @@
 	user-select: none;
 	position: relative;
 
+	&.active {
+		@media (max-width: 510px) {
+			.dropdown {
+				top: 30px;
+			}
+		}
+	}
+
+	> div {
+		position: relative;
+	}
+
 	&.light {
 		.input {
 			outline: 1px solid var(--border);
@@ -38,6 +50,20 @@
 		background-color: transparent;
 		border: none;
 		transition: all 0.23s ease-in-out 0s;
+		z-index: 60;
+
+		@media (max-width: 510px) {
+			border: 1px solid $skeleton;
+			display: flex;
+			padding: 0.6rem;
+			border-radius: 50%;
+			align-content: center;
+			justify-content: center;
+
+			&.active {
+				border: none;
+			}
+		}
 	}
 
 	.input {
@@ -51,8 +77,34 @@
 		font-size: 1rem;
 		font-family: inherit;
 		cursor: pointer;
-		transition: all 0.23s ease-in-out 0s;
 		text-indent: 1.5rem;
+		transition: all 0.23s ease-in-out 0s;
+
+		@media (max-width: 510px) {
+			transform: scaleX(0.5);
+			transform-origin: left;
+			position: absolute;
+			top: -20px;
+			left: 10px;
+			z-index: 50;
+			background-color: rgba(0, 0, 0, 0.3);
+			backdrop-filter: blur(5px);
+			opacity: 0;
+
+			&.active {
+				transform: scaleX(1);
+				width: 200px;
+				opacity: 1;
+
+				&:focus {
+					text-indent: 1.5rem;
+
+					& + .searchIcon {
+						left: 0.6rem;
+					}
+				}
+			}
+		}
 
 		&:focus {
 			outline: 1px solid $green;
@@ -64,7 +116,7 @@
 		}
 
 		&::placeholder {
-			@include adaptiv-value('font-size', 19, 14);
+			@include adaptiv-value('font-size', 18, 14);
 		}
 	}
 
@@ -81,19 +133,20 @@
 		transform-origin: top center;
 		position: absolute;
 		top: 60px;
-		left: 0;
+		left: 0.6rem;
 		width: 100%;
-		min-width: 200px;
+		min-width: 210px;
 		border-radius: 0.4rem;
 		z-index: 99;
 		direction: rtl;
+		border: 1px solid $skeleton;
 
-		@media (max-width: $md) {
-			left: -.8rem;
+		@media (max-width: 340px) {
+			left: 5px;
 		}
 
 		&::-webkit-scrollbar {
-			width: 10px;
+			width: 6px;
 		}
 
 		&::-webkit-scrollbar-track {
@@ -113,12 +166,26 @@
 			scale: 1;
 		}
 
+		@media (max-width: 510px) {
+			visibility: hidden !important;
+			pointer-events: none !important;
+			opacity: 0 !important;
+			scale: 0 !important;
+
+			&.smallDeviceActive {
+				visibility: visible !important;
+				pointer-events: all !important;
+				opacity: 1 !important;
+				scale: 1 !important;
+			}
+		}
+
 		span {
 			display: block;
 			border-radius: 0.4rem;
 			padding: 0.5rem;
 			transition: all 0.23s ease 0s;
-			font-size: 1rem;
+			@include adaptiv-value('font-size', 18, 14);
 			text-wrap: nowrap;
 			word-break: keep-all;
 			direction: ltr;
