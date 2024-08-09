@@ -31,16 +31,15 @@ export const SearchForm = () => {
 		if (searchParams.has('t')) setInputText(searchParams.get('t'))
 	}, [])
 
-	useEffect(() => {
-		if (searchParams.has('t')) setInputText(searchParams.get('t'))
-	}, [])
-
 	async function handleSearch(
 		term: string,
+		helpTerm?: string,
 		e?: KeyboardEvent<HTMLInputElement>
 	) {
 		if (e && e.key === 'Enter') {
 			setIsEnter(true)
+			setInputText(helpTerm ? helpTerm : term)
+			;(e.target as HTMLInputElement).blur()
 		}
 		const params = new URLSearchParams(searchParams)
 

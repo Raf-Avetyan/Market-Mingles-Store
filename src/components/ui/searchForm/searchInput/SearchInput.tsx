@@ -21,7 +21,11 @@ import { categoryItemService } from '@/services/category.service'
 interface ISearchInputProps {
 	inputText: string | null
 	setInputText: Dispatch<SetStateAction<string | null>>
-	handleSearch: (term: string, e?: KeyboardEvent<HTMLInputElement>) => void
+	handleSearch: (
+		term: string,
+		helpTerm: string,
+		e?: KeyboardEvent<HTMLInputElement>
+	) => void
 }
 
 export const SearchInput = ({
@@ -95,7 +99,13 @@ export const SearchInput = ({
 					onChange={e => handleInputChange(e)}
 					value={inputText ? inputText : ''}
 					placeholder='Search...'
-					onKeyDown={e => handleSearch(inputText ? inputText : '', e)}
+					onKeyDown={e =>
+						handleSearch(
+							inputText ? inputText : '',
+							categoryNames ? categoryNames[0] : '',
+							e
+						)
+					}
 				/>
 				<button
 					type='submit'

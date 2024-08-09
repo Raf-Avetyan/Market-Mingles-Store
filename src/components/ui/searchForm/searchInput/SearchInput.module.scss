@@ -194,7 +194,13 @@
 			text-wrap: nowrap;
 			word-break: keep-all;
 			direction: ltr;
+			margin-top: 0.3rem;
 
+			&:first-child {
+				background-color: #333;
+				margin-top: 0;
+			}
+			
 			&:hover {
 				background-color: #333;
 			}
