@@ -45,7 +45,11 @@ export const SearchForm = () => {
 	) {
 		if (e && e.key === 'Enter') {
 			setIsEnter(true)
-			setInputText(helpTerm ? helpTerm : term)
+			if (helpTerm !== 'Not found') {
+				setInputText(helpTerm ? helpTerm : term)
+			} else {
+				setInputText('')
+			}
 			;(e.target as HTMLInputElement).blur()
 			setOpenDropdown(false)
 		}
