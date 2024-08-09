@@ -1,14 +1,15 @@
+import { useMutation } from '@tanstack/react-query'
 import classNames from 'classnames'
-import { ChevronLeft } from 'lucide-react'
+import { ChevronLeft, LogOut } from 'lucide-react'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { Dispatch, SetStateAction, useEffect, useRef } from 'react'
-
-import { LogoutButton } from '@/components/dashboard-layout/sidebar/logoutButton/LogoutButton'
 
 import { useProfile } from '@/hooks/useProfile'
 import { useTheme } from '@/hooks/useTheme'
 
 import styles from './ProfileMenu.module.scss'
+import { authService } from '@/services/auth.service'
 
 interface IProfileMenuProps {
 	isProfileOpen: boolean
@@ -21,6 +22,14 @@ export const ProfileMenu = ({
 }: IProfileMenuProps) => {
 	const dropdownRef = useRef<HTMLDivElement | null>(null)
 	const { themeMode } = useTheme()
+
+	const { mutate } = useMutation({
+		mutationKey: ['logout'],
+		mutationFn: () => authService.logout(),
+		onSuccess: () => router.replace('/auth')
+	})
+
+	const router = useRouter()
 
 	const { data, isLoading } = useProfile()
 
@@ -77,7 +86,15 @@ export const ProfileMenu = ({
 					</div>
 					<div className={styles.username}>{data?.username}</div>
 					<div className={styles.email}>{data?.email}</div>
-					<LogoutButton />
+					<div
+						className={classNames(styles.logoutBtn, {
+							[styles.light]: themeMode === 'light'
+						})}
+					>
+						<button onClick={() => mutate()}>
+							<LogOut size={20} />
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
