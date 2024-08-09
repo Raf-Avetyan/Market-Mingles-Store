@@ -105,7 +105,7 @@ export const ImagesSlide = ({
 			<Slider
 				{...settings}
 				className={classNames('product-slider', {
-					hidden: !isLoadingImage
+					hidden: isLoadingImage
 				})}
 				ref={sliderRef}
 			>
