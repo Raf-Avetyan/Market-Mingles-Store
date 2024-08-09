@@ -13,4 +13,8 @@
 	columns: 16rem;
 	gap: 1rem;
 	margin-top: 1rem;
+
+	@media (max-width: $mb) {
+		min-height: 100vh;
+	}
 }
