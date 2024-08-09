@@ -38,11 +38,19 @@
 
 		.searchIcon {
 			color: var(--green);
+			border: 1px solid var(--border);
 		}
 
 		.dropdown {
 			background-color: var(--bgDark);
 			color: var(--text);
+
+			span {
+				&:first-child {
+					background-color: #222;
+					margin-top: 0;
+				}
+			}
 		}
 	}
 
@@ -82,7 +90,7 @@
 		font-size: 1rem;
 		font-family: inherit;
 		cursor: pointer;
-		text-indent: 1.5rem;
+		padding-left: 2.5rem;
 		transition: all 0.23s ease-in-out 0s;
 
 		@media (max-width: 510px) {
@@ -102,7 +110,7 @@
 				opacity: 1;
 
 				&:focus {
-					text-indent: 1.5rem;
+					padding-left: 2.5rem;
 
 					& + .searchIcon {
 						left: 0.6rem;
@@ -113,7 +121,7 @@
 
 		&:focus {
 			outline: 1px solid $green;
-			text-indent: 0;
+			padding-left: 1rem;
 
 			& + .searchIcon {
 				left: 85%;
@@ -122,6 +130,7 @@
 
 		&::placeholder {
 			@include adaptiv-value('font-size', 18, 14);
+			font-family: inherit;
 		}
 	}
 
@@ -200,7 +209,7 @@
 				background-color: #333;
 				margin-top: 0;
 			}
-			
+
 			&:hover {
 				background-color: #333;
 			}

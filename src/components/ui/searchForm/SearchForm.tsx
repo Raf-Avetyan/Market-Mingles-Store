@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { KeyboardEvent, useEffect, useState } from 'react'
+import useDetectKeyboardOpen from 'use-detect-keyboard-open'
 
 import styles from './SearchForm.module.scss'
 import { SearchInput } from './searchInput/SearchInput'
@@ -13,6 +14,11 @@ export const SearchForm = () => {
 	const [isEnter, setIsEnter] = useState(false)
 	const pathname = usePathname()
 	const [openDropdown, setOpenDropdown] = useState<boolean>(false)
+	const isKeyboardOpen = useDetectKeyboardOpen()
+
+	useEffect(() => {
+		if (!isKeyboardOpen) setOpenDropdown(false)
+	}, [isKeyboardOpen])
 
 	useEffect(() => {
 		const timeout = setTimeout(() => {

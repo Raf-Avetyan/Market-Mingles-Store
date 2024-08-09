@@ -1,7 +1,9 @@
 @import './src/app/scss/colors';
+@import './src/app/scss/mixins';
 
 .menu {
 	width: 300px;
+	@include adaptiv-value("width", 300, 260);
 	background-color: rgba(245, 245, 245, 0.2);
 	backdrop-filter: blur(15px);
 	position: absolute;
@@ -40,7 +42,7 @@
 
 	&.active {
 		visibility: visible;
-		height: 500px;
+		@include adaptiv-value("height", 500, 420);
 		pointer-events: all;
 		opacity: 1;
 	}

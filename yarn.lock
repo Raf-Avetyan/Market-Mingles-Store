@@ -3211,6 +3211,11 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
+use-detect-keyboard-open@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/use-detect-keyboard-open/-/use-detect-keyboard-open-0.4.0.tgz#a1d2cc6521abfabac558c19ff45ed975b7893a1c"
+  integrity sha512-g26dzEDF9qh1VSwYT7ILOdzS0v9xPo5IF3R804HksW+NAOiNd2P2KYrmTfd/5ApfYixlrX2P7+PlsEgAx/lZ6w==
+
 which-boxed-primitive@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/which-boxed-primitive/-/which-boxed-primitive-1.0.2.tgz#13757bc89b209b049fe5d86430e21cf40a89a8e6"
