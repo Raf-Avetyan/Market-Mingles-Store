@@ -99,13 +99,14 @@ export const SearchInput = ({
 					onChange={e => handleInputChange(e)}
 					value={inputText ? inputText : ''}
 					placeholder='Search...'
-					onKeyDown={e =>
+					onKeyDown={e => {
 						handleSearch(
 							inputText ? inputText : '',
 							categoryNames ? categoryNames[0] : '',
 							e
 						)
-					}
+						setOpenDropdown(false)
+					}}
 				/>
 				<button
 					type='submit'

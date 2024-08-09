@@ -76,7 +76,7 @@
 
 				.skeletonRectangular {
 					scale: 1.3;
-					margin-right: 0.7rem;
+					margin-right: 0.7rem !important;
 
 					&:last-child {
 						margin-right: 0;
@@ -93,7 +93,7 @@
 			.skeletonRectangular {
 				background-color: $skeleton;
 				border-radius: 0.4rem !important;
-				margin-right: 0.7rem;
+				margin-right: 0.7rem !important;
 			}
 
 			.skeleton {

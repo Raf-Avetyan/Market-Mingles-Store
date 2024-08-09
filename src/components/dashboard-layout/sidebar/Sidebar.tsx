@@ -140,12 +140,10 @@ export const Sidebar = ({
 											variant='rectangular'
 											className={styles.skeletonRectangular}
 										/>
-										{sidebarWidth >= 1.4 ? (
-											<Skeleton
-												animation='wave'
-												className={styles.skeleton}
-											/>
-										) : null}
+										<Skeleton
+											animation='wave'
+											className={styles.skeleton}
+										/>
 									</Box>
 								))
 						]}
