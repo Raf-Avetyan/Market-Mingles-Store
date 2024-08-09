@@ -67,6 +67,7 @@
 		font-size: 3.6rem;
 		transition: all 0.23s ease 0s;
 		cursor: pointer;
+		position: relative;
 
 		&::after {
 			content: 'click to change';
@@ -75,13 +76,12 @@
 			pointer-events: none;
 			position: absolute;
 			bottom: -1.6rem;
-			opacity: 0.2;
 			font-size: 0.75rem;
 		}
 
 		@media (max-width: $mb) {
 			&::after {
-				opacity: 1;
+				opacity: .2;
 				visibility: visible;
 				pointer-events: all;
 			}
@@ -99,7 +99,6 @@
 		border-radius: 50%;
 		background-color: transparent !important;
 		opacity: 0;
-		position: absolute;
 		width: 100%;
 		height: 100%;
 		transition: all 0.23s ease 0s;
