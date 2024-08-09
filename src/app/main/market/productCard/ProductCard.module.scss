@@ -46,6 +46,7 @@
 			height: 100%;
 			filter: contrast(105%) saturate(140%) brightness(80%);
 			transition: all 0.23s ease 0s;
+			user-select: none;
 
 			&:hover {
 				filter: contrast(105%) saturate(140%) brightness(65%);
