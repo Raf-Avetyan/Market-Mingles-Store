@@ -70,14 +70,20 @@
 
 		&::after {
 			content: 'click to change';
-			display: none;
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
 			position: absolute;
 			bottom: -1.6rem;
-			opacity: .2;
-			font-size: .75rem;
+			opacity: 0.2;
+			font-size: 0.75rem;
+		}
 
-			@media (max-width: $mb) {
-				display: block;
+		@media (max-width: $mb) {
+			&::after {
+				opacity: 1;
+				visibility: visible;
+				pointer-events: all;
 			}
 		}
 	}
