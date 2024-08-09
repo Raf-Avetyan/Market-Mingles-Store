@@ -26,6 +26,11 @@
 		.input {
 			outline: 1px solid var(--border);
 
+			@media (max-width: 510px) {
+				background-color: #333;
+				color: whitesmoke;
+			}
+
 			&:focus {
 				outline: 1px solid var(--green);
 			}

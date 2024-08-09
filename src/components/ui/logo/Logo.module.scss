@@ -10,12 +10,13 @@
 
 	@media (max-width: $mb) {
 		width: 20%;
-		max-height: 70px;
+		max-height: 60px;
+		border: none;
 		padding: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding-right: .5rem;
+		padding-right: 0.5rem;
 
 		h1 {
 			display: none;
@@ -53,6 +54,10 @@
 				@media (max-width: $mb) {
 					width: 45px;
 					height: 45px;
+				}
+				@media (max-width: $md) {
+					width: 40px;
+					height: 40px;
 				}
 			}
 		}
@@ -93,8 +98,8 @@
 			object-position: center;
 			transition: all 1s cubic-bezier(0.8, 2.04, 0.26, 0) 0s;
 
-			@include adaptiv-value('width', 65, 50);
-			@include adaptiv-value('height', 65, 50);
+			@include adaptiv-value('width', 65, 40);
+			@include adaptiv-value('height', 65, 40);
 		}
 
 		h1 {
