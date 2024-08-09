@@ -11,16 +11,16 @@
 	position: relative;
 
 	@media (max-width: $mb) {
-		grid-row: 2;
 		flex-direction: row;
 		border-right: none;
 		border-top: 2px solid $bgDark;
-		padding-left: .5rem;
+		padding-left: 0.5rem;
 		position: fixed;
-		bottom: 0 !important;
 		width: 100%;
-		top: 90vh;
+		bottom: 0 !important;
 		z-index: 90;
+		min-height: 60px;
+		height: 60px;
 	}
 
 	&.light {
@@ -69,14 +69,14 @@
 			@media (max-width: $mb) {
 				flex-direction: row;
 				padding: 0;
-				@include adaptiv-value("gap", 30, 10);
+				@include adaptiv-value('gap', 30, 10);
 				.skeleton {
 					display: none;
 				}
 
 				.skeletonRectangular {
 					scale: 1.3;
-					margin-right: .7rem;
+					margin-right: 0.7rem;
 
 					&:last-child {
 						margin-right: 0;
@@ -92,7 +92,7 @@
 			.skeleton,
 			.skeletonRectangular {
 				background-color: $skeleton;
-				border-radius: .4rem !important;
+				border-radius: 0.4rem !important;
 			}
 
 			.skeleton {

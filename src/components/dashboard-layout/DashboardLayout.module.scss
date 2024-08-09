@@ -7,7 +7,7 @@
 	transition: all 0.23s ease 0s;
 
 	@media (max-width: $mb) {
-		grid-template-columns: 1fr !important;
+		display: block;
 	}
 
 	&.light {
@@ -26,10 +26,6 @@
 		overflow-x: hidden;
 		position: relative;
 		padding-inline: 1rem;
-
-		@media (max-width: $mb) {
-			grid-row: 1;
-		}
 
 		&::-webkit-scrollbar {
 			width: 10px;

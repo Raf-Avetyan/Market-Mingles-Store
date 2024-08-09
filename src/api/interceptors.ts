@@ -8,8 +8,8 @@ import {
 import { authService } from '@/services/auth.service'
 
 const options: CreateAxiosDefaults = {
-	baseURL: 'https://api.marketmingles.shop/api',
-	// baseURL: 'http://localhost:3000/api',
+	// baseURL: 'https://api.marketmingles.shop/api',
+	baseURL: 'http://localhost:3000/api',
 	headers: {
 		'Content-Type': 'application/json'
 	},
