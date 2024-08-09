@@ -21,15 +21,25 @@
 		z-index: 90;
 		min-height: 70px;
 		height: 70px;
+		background-color: rgba(33, 33, 33, 0.9);
+		backdrop-filter: blur(6px);
 	}
 
 	&.light {
-		border-top: 2px solid rgba(153, 153, 153, 0.5);
+		border-top: 2px solid rgba(153, 153, 153, 0.15);
+		background-color: rgba(201, 201, 201, 0.8);
+		backdrop-filter: blur(6px);
 
 		.panelToggleBtn {
 			color: var(--green);
 			&:hover {
 				color: var(--green);
+			}
+		}
+
+		@media (max-width: $mb) {
+			.menu {
+				background-color: rgba(163, 255, 21, 0.102);
 			}
 		}
 	}

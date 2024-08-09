@@ -96,10 +96,7 @@ export const UserAvatarChange = ({
 						setFileValue('')
 					}}
 				>
-					<SquarePen
-						size={30}
-						className={styles.cutomizeIcon}
-					/>
+					<SquarePen className={styles.cutomizeIcon} />
 				</label>
 			</div>
 		</div>
