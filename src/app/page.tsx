@@ -13,7 +13,7 @@ export default function Page() {
 	useEffect(() => {
 		const timeoutId = setTimeout(() => {
 			replace(`https://www.marketmingles.shop${DASHBOARD_PAGES.HOME}`)
-		}, 3000)
+		}, 2500)
 
 		return () => {
 			clearTimeout(timeoutId)
