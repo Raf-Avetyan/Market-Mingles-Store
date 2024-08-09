@@ -12,6 +12,7 @@ export const SearchForm = () => {
 	const [inputText, setInputText] = useState<string | null>('')
 	const [isEnter, setIsEnter] = useState(false)
 	const pathname = usePathname()
+	const [openDropdown, setOpenDropdown] = useState<boolean>(false)
 
 	useEffect(() => {
 		const timeout = setTimeout(() => {
@@ -40,6 +41,7 @@ export const SearchForm = () => {
 			setIsEnter(true)
 			setInputText(helpTerm ? helpTerm : term)
 			;(e.target as HTMLInputElement).blur()
+			setOpenDropdown(false)
 		}
 		const params = new URLSearchParams(searchParams)
 
@@ -59,6 +61,8 @@ export const SearchForm = () => {
 					inputText={inputText}
 					setInputText={setInputText}
 					handleSearch={handleSearch}
+					openDropdown={openDropdown}
+					setOpenDropdown={setOpenDropdown}
 				/>
 			</div>
 		</div>

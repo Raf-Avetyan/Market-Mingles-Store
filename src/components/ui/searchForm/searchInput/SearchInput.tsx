@@ -26,17 +26,20 @@ interface ISearchInputProps {
 		helpTerm: string,
 		e?: KeyboardEvent<HTMLInputElement>
 	) => void
+	openDropdown: boolean
+	setOpenDropdown: Dispatch<SetStateAction<boolean>>
 }
 
 export const SearchInput = ({
 	inputText,
 	setInputText,
-	handleSearch
+	handleSearch,
+	openDropdown,
+	setOpenDropdown
 }: ISearchInputProps) => {
 	const { themeMode } = useTheme()
-	const [openDropdown, setOpenDropdown] = useState<boolean>(false)
-	const [categoryNames, setCategoryNames] = useState<string[]>()
 	const [isInputOpen, setIsInputOpen] = useState(false)
+	const [categoryNames, setCategoryNames] = useState<string[]>()
 	const selectRef = useRef<HTMLDivElement>(null)
 	const inputRef = useRef<HTMLInputElement | null>(null)
 
@@ -99,14 +102,13 @@ export const SearchInput = ({
 					onChange={e => handleInputChange(e)}
 					value={inputText ? inputText : ''}
 					placeholder='Search...'
-					onKeyDown={e => {
+					onKeyDown={e =>
 						handleSearch(
 							inputText ? inputText : '',
 							categoryNames ? categoryNames[0] : '',
 							e
 						)
-						setOpenDropdown(false)
-					}}
+					}
 				/>
 				<button
 					type='submit'
