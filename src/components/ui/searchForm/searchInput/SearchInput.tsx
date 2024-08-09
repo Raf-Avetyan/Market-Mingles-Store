@@ -95,7 +95,7 @@ export const SearchInput = ({
 			<div>
 				<input
 					className={classNames(styles.input, {
-						[styles.active]: isInputOpen && openDropdown
+						[styles.active]: isInputOpen || openDropdown
 					})}
 					ref={inputRef}
 					onFocus={() => setOpenDropdown(true)}
