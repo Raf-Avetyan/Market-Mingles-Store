@@ -6,6 +6,12 @@
 	.product-slider {
 		overflow: hidden;
 		height: 100%;
+
+		&.hidden {
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+		}
 		.slick-list {
 			height: 100%;
 			.slick-track {

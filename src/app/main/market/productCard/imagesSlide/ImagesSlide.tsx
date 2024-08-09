@@ -104,7 +104,9 @@ export const ImagesSlide = ({
 		<div className='slider-container'>
 			<Slider
 				{...settings}
-				className='product-slider'
+				className={classNames('product-slider', {
+					hidden: !isLoadingImage
+				})}
 				ref={sliderRef}
 			>
 				{imageUrls.map((img, index) => (
