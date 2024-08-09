@@ -38,7 +38,7 @@ export default function Auth() {
 		onSuccess: () => {
 			toast.success(`Successfully ${isLoginForm ? 'logined' : 'registered'}!`)
 			reset()
-			replace(DASHBOARD_PAGES.HOME)
+			replace('https://marketmingles.shop/')
 		},
 		onError: () => {
 			toast.error(`${isLoginForm ? 'Login' : 'Register'} failed! Try again`)
