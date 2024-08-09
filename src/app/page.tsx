@@ -11,7 +11,13 @@ export default function Page() {
 	const { replace } = useRouter()
 
 	useEffect(() => {
-		replace(`https://www.marketmingles.shop${DASHBOARD_PAGES.HOME}`)
+		const timeoutId = setTimeout(() => {
+			replace(`https://www.marketmingles.shop${DASHBOARD_PAGES.HOME}`)
+		}, 3000)
+
+		return () => {
+			clearTimeout(timeoutId)
+		}
 	}, [])
 
 	return (
