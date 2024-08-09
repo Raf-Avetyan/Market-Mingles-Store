@@ -8,7 +8,10 @@
 
 	@media (max-width: $mb) {
 		display: block;
+		padding-bottom: 70px;
+		overflow: auto;
 	}
+
 
 	&.light {
 		.main {
