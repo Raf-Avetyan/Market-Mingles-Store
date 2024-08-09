@@ -1,4 +1,6 @@
 @import '/src/app/scss/colors';
+@import '/src/app/scss/screens';
+@import '/src/app/scss/mixins';
 
 .wrapper {
 	&.light {
@@ -25,7 +27,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: top;
-		padding: 1rem .5rem;
+		padding: 1rem 0.5rem;
 		break-inside: avoid;
 		max-height: 30rem;
 		max-width: 300px;
@@ -76,6 +78,37 @@
 				width: 320px;
 				height: 140px;
 				background-color: $skeleton;
+				border-radius: 0.4rem;
+				overflow: hidden;
+
+				@media (max-width: $xl4) {
+					height: 180px;
+					width: 100%;
+				}
+				@media (max-width: $xl2) {
+					height: 180px;
+					width: 100%;
+				}
+				@media (max-width: $xl) {
+					height: 240px;
+					width: 100%;
+				}
+				@media (max-width: 880px) {
+					height: 200px;
+					width: 100%;
+				}
+				@media (max-width: $tablet) {
+					height: 240px;
+					width: 100%;
+				}
+				@media (max-width: $mb) {
+					@include adaptiv-value("height", 240, 180);
+					width: 100%;
+				}
+				@media (max-width: $md) {
+					height: 180px;
+					width: 100%;
+				}
 			}
 		}
 

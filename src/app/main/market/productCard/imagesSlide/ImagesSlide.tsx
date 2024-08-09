@@ -140,6 +140,7 @@ export const ImagesSlide = ({
 					light: themeMode === 'light'
 				})}
 				onClick={handleSwitchToImages}
+				style={{ display: isLoadingImage ? 'none' : 'block' }}
 			>
 				{showAllImages && currShowAllImagesId === id ? (
 					<LucideImage size={20} />
