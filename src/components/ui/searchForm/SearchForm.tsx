@@ -41,7 +41,7 @@ export const SearchForm = () => {
 			setIsEnter(true)
 			setInputText(helpTerm ? helpTerm : term)
 			;(e.target as HTMLInputElement).blur()
-			setOpenDropdown(false)
+			setOpenDropdown(!openDropdown)
 		}
 		const params = new URLSearchParams(searchParams)
 
