@@ -117,7 +117,7 @@ export const SearchInput = ({
 					})}
 					onClick={() => {
 						setIsInputOpen(!isInputOpen)
-						setOpenDropdown(!openDropdown)
+						setOpenDropdown(true)
 						inputRef.current?.focus()
 					}}
 				>
