@@ -1,0 +1,52 @@
+@import './src/app/scss/mixins';
+
+.wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 0.8rem;
+
+	.icon {
+		@include adaptiv-value('width', 120, 80);
+		@include adaptiv-value('height', 120, 80);
+		padding: 1.2rem;
+		border-radius: 1rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #222;
+	}
+
+	.loader {
+		height: 6px;
+      border-radius: .4rem;
+      @include adaptiv-value("width", 65, 55);
+		--c: no-repeat linear-gradient(greenyellow 0 0);
+		background: var(--c), var(--c), #222;
+		background-size: 60% 100%;
+		animation: l16 2s infinite;
+	}
+	@keyframes l16 {
+		0% {
+			background-position:
+				-150% 0,
+				-150% 0;
+		}
+		66% {
+			background-position:
+				250% 0,
+				-150% 0;
+		}
+		100% {
+			background-position:
+				250% 0,
+				250% 0;
+		}
+	}
+}
