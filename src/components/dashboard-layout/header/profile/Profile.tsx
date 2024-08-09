@@ -78,21 +78,18 @@ export const Profile = () => {
 					/>
 				</div>
 			) : (
-				<Box
-					width={{ width: 320 }}
-					className={styles.skeletonBox}
-				>
+				<Box className={styles.skeletonBox}>
 					<Skeleton
 						variant='circular'
-						width={65}
-						height={65}
+						width={58}
+						height={58}
 						animation='wave'
 						className={styles.skeletonCircle}
 					/>
-					<Box sx={{ width: 240 }}>
+					<Box className={styles.skeletonRight}>
 						<Skeleton
 							animation='wave'
-							height={35}
+							height={28}
 							className={styles.skeleton}
 						/>
 						<Skeleton

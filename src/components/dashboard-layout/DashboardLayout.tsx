@@ -67,10 +67,7 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
 				fullWidth={fullWidth}
 			/>
 			<main className={styles.main}>
-				<Header
-					sidebarWidth={sidebarWidth}
-					fullWidth={fullWidth}
-				/>
+				<Header sidebarWidth={sidebarWidth} />
 				<GlobalLoader />
 				{children}
 			</main>

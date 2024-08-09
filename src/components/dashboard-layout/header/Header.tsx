@@ -12,17 +12,16 @@ import { ThemeBtn } from './themeBtn/ThemeBtn'
 
 interface IHeaderProps {
 	sidebarWidth: number
-	fullWidth: number
 }
 
-export const Header = ({ sidebarWidth, fullWidth }: IHeaderProps) => {
+export const Header = ({ sidebarWidth }: IHeaderProps) => {
 	const { themeMode } = useTheme()
 
 	return (
 		<header
 			className={classNames(styles.header, {
 				[styles.light]: themeMode === 'light',
-				[styles.hidden]: sidebarWidth > 1.4 && fullWidth <= 480
+				[styles.hidden]: sidebarWidth > 1.4
 			})}
 		>
 			<SearchForm />

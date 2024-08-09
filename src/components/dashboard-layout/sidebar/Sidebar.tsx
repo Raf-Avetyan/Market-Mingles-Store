@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import classNames from 'classnames'
 import { PanelLeftOpen, PanelRightOpen } from 'lucide-react'
 import { usePathname } from 'next/navigation'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { Footer } from '@/components/ui/footer/Footer'
 import { Logo } from '@/components/ui/logo/Logo'
@@ -140,7 +140,7 @@ export const Sidebar = ({
 											variant='rectangular'
 											className={styles.skeletonRectangular}
 										/>
-										{sidebarWidth > 1.4 || fullWidth >= 650 ? (
+										{sidebarWidth >= 1.4 ? (
 											<Skeleton
 												animation='wave'
 												className={styles.skeleton}

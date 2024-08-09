@@ -46,19 +46,18 @@ export const MenuItem = ({
 			onMouseLeave={handleMouseLeave}
 			onClick={() => onWidthChange(10)}
 		>
-			<span className={hoveredItemName === item.name ? styles.active : ''}>
-				{item.name}
-			</span>
-			<Link
-				href={item.link}
-				className={item.link == pathname ? styles.active : ''}
-			>
-				<LucideIcon
-					size={30}
-					className={styles.icon}
-				/>
-				<span className={styles.name}>{item.name}</span>
-			</Link>
+			<div>
+				<span className={hoveredItemName === item.name ? styles.active : ''}>
+					{item.name}
+				</span>
+				<Link
+					href={item.link}
+					className={item.link == pathname ? styles.active : ''}
+				>
+					<LucideIcon className={styles.icon} />
+					<span className={styles.name}>{item.name}</span>
+				</Link>
+			</div>
 		</div>
 	)
 }

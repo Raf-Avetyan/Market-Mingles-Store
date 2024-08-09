@@ -1,13 +1,19 @@
+@import "./src/app/scss/screens";
+
 .footer {
 	color: rgba(245, 245, 245, 0.25);
-	font-size: 0.8rem;
+	font-size: 0.7rem;
 	text-align: center;
 	padding: 1rem;
 	user-select: none;
 
-   &.small {
-      font-size: 0.28rem;
-   }
+	@media (max-width: $mb) {
+		display: none;
+	}
+
+	&.small {
+		font-size: 0.28rem;
+	}
 
 	&.light {
 		color: var(--foreground-rgb);

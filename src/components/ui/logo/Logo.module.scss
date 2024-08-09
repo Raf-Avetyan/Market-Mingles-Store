@@ -8,13 +8,21 @@
 	padding: 1.5rem 2rem 1.5rem 1.2rem;
 	user-select: none;
 
-	@media (max-width: $ld) {
-		padding: 0.8rem 0rem 0.6rem 0.9rem;
-		a {
-			img {
-				width: 52px;
-				height: 52px;
-			}
+	@media (max-width: $mb) {
+		width: 20%;
+		max-height: 70px;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-right: .5rem;
+
+		h1 {
+			display: none;
+		}
+
+		.beta {
+			display: none;
 		}
 	}
 
@@ -33,14 +41,6 @@
 	&.hidden {
 		h1 {
 			display: none;
-			@media (max-width: $ld) {
-				a {
-					img {
-						width: 40px;
-						height: 40px;
-					}
-				}
-			}
 		}
 		span {
 			display: none;
@@ -49,6 +49,11 @@
 			img {
 				width: 50px;
 				height: 50px;
+
+				@media (max-width: $mb) {
+					width: 45px;
+					height: 45px;
+				}
 			}
 		}
 	}
@@ -64,7 +69,7 @@
 
 	&:hover {
 		h1 {
-			> p:first-child {
+			> p:first-chimb {
 				transform: translateX(1.5rem);
 			}
 			> p {
@@ -80,7 +85,7 @@
 	> a {
 		display: inline-flex;
 		align-items: center;
-		@include adaptiv-value("column-gap", 18, 14);
+		@include adaptiv-value('column-gap', 18, 14);
 		position: relative;
 
 		img {
@@ -88,19 +93,19 @@
 			object-position: center;
 			transition: all 1s cubic-bezier(0.8, 2.04, 0.26, 0) 0s;
 
-			@include adaptiv-value("width", 65, 50);
-			@include adaptiv-value("height", 65, 50);
+			@include adaptiv-value('width', 65, 50);
+			@include adaptiv-value('height', 65, 50);
 		}
 
 		h1 {
-			@include adaptiv-value("font-size", 30, 22);
+			@include adaptiv-value('font-size', 30, 22);
 
 			p {
 				line-height: 1;
 				transition: all 1s cubic-bezier(0.8, 2.04, 0.26, 0) 0s;
 				position: relative;
 
-				&:nth-child(2) {
+				&:nth-chimb(2) {
 					text-indent: 1rem;
 				}
 
@@ -115,7 +120,7 @@
 			top: 0.9rem;
 			right: -1.3rem;
 			transform: rotate(38deg);
-			@include adaptiv-value("font-size", 16, 12);
+			@include adaptiv-value('font-size', 16, 12);
 			transition: all 1s cubic-bezier(0.8, 2.04, 0.26, 0) 0s;
 			color: rgba(128, 128, 128, 0.59);
 		}

@@ -10,6 +10,14 @@
 	background-color: var(--background-rgb);
 	position: relative;
 
+	@media (max-width: $mb) {
+		grid-row: 2;
+		flex-direction: row;
+		border-right: none;
+		border-top: 2px solid $bgDark;
+		padding-left: .5rem;
+	}
+
 	&.light {
 		border-right: 2px solid var(--border);
 
@@ -31,10 +39,16 @@
 		display: flex;
 		flex-direction: column;
 		row-gap: 0.4rem;
-		padding: 3rem 1.2rem;
+		padding: 3rem 0.8rem 0.4rem;
 
-		@media (max-width: $ld) {
-			padding: 3rem 0.8rem 0.4rem;
+		@media (max-width: $mb) {
+			flex-direction: row;
+			justify-content: flex-end;
+			padding: 0;
+			padding-right: 1rem;
+			background-color: #adff2f05;
+			max-height: 70px;
+			@include adaptiv-value('gap', 100, 0);
 		}
 
 		flex: 1 1 auto;
@@ -45,6 +59,18 @@
 			flex-direction: column;
 			row-gap: 0.8rem;
 			padding: 0 1.2rem;
+
+			@media (max-width: $mb) {
+				flex-direction: row;
+				@include adaptiv-value("gap", 30, 10);
+				.skeleton {
+					display: none;
+				}
+
+				.skeletonRectangular {
+					padding: 1.3rem;
+				}
+			}
 
 			.skeletonBox {
 				display: flex;
@@ -59,12 +85,12 @@
 
 			.skeleton {
 				height: 35px;
-				min-width: 140px
+				min-width: 140px;
 			}
 
 			.skeletonRectangular {
-				@include adaptiv-value("min-width", 35, 30);
-				@include adaptiv-value("height", 35, 30);
+				@include adaptiv-value('min-width', 35, 30);
+				@include adaptiv-value('height', 35, 30);
 				border-radius: 0.6rem;
 			}
 		}
@@ -77,6 +103,10 @@
 		color: rgba(172, 255, 47, 0.3);
 		cursor: pointer;
 		transition: all 0.23s ease-in-out 0s;
+
+		@media (max-width: $mb) {
+			display: none;
+		}
 
 		&:hover {
 			color: rgba(172, 255, 47, 0.6);
@@ -118,6 +148,10 @@
 		top: 0;
 		right: -2px;
 		cursor: w-resize;
+
+		@media (max-width: $mb) {
+			display: none;
+		}
 
 		&.active {
 			background-color: rgba(172, 255, 47, 0.6);

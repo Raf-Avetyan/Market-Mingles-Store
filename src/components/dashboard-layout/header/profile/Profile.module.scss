@@ -4,7 +4,6 @@
 
 .profile {
 	display: flex;
-	align-items: center;
 	gap: 10px;
 	position: relative;
 	background-color: rgba(245, 245, 245, 0.05);
@@ -103,6 +102,19 @@
 	align-items: center;
 	gap: 10px;
 	padding: 0.2rem 1rem;
+	width: 320px;
+
+	@media (max-width: $xl) {
+		padding: 0;
+	}
+
+	.skeletonRight {
+		width: 240px;
+
+		@media (max-width: $xl) {
+			width: auto;
+		}
+	}
 
 	.skeleton,
 	.skeletonCircle {
@@ -112,11 +124,12 @@
 
 	@media (max-width: $xl) {
 		display: block;
-		width: 100px;
+		width: auto;
+	}
 
+	@media (max-width: $xl) {
 		.skeleton {
 			display: none;
 		}
-
 	}
 }

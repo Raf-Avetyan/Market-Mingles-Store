@@ -28,6 +28,6 @@
 	.right {
 		display: flex;
 		align-items: center;
-		@include adaptiv-value('gap', 50, 10);
+		@include adaptiv-value('gap', 50, 20);
 	}
 }

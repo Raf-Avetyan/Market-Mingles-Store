@@ -1,14 +1,26 @@
 @import '/src/app/scss/colors';
+@import '/src/app/scss/screens';
+@import '/src/app/scss/mixins';
+
 .menuItem {
 	user-select: none;
 	position: relative;
 
-	> span {
-		display: none;
+	@media (max-width: $mb) {
+		display: flex;
+		flex-direction: column;
+		max-height: 70px;
+		justify-content: center;
+	}
+
+	div {
+		> span {
+			display: none;
+		}
 	}
 
 	&.light {
-		> a {
+		a {
 			.icon {
 				color: var(--green);
 			}
@@ -25,7 +37,8 @@
 		}
 
 		&.hidden {
-			> span {
+			@include adaptiv-value('scale', 1, 0.9);
+			span {
 				background-color: var(--green);
 				color: var(--text);
 
@@ -36,7 +49,7 @@
 		}
 	}
 
-	> a {
+	a {
 		display: flex;
 		align-items: center;
 		gap: 0.6rem;
@@ -51,6 +64,8 @@
 
 		.icon {
 			color: yellowgreen;
+			@include adaptiv-value('width', 30, 25);
+			@include adaptiv-value('height', 30, 25);
 		}
 
 		&:hover {
@@ -59,7 +74,7 @@
 	}
 
 	&.hidden {
-		> a {
+		a {
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -69,7 +84,7 @@
 			display: none;
 		}
 
-		> span {
+		span {
 			display: block;
 			position: absolute;
 			left: 50%;
@@ -92,6 +107,11 @@
 				left: 50%;
 				opacity: 0.5;
 				transform: translateX(-50%);
+
+				@media (max-width: $mb) {
+					top: -0rem;
+					font-size: .65rem;
+				}
 			}
 		}
 	}

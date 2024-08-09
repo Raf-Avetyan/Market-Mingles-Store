@@ -6,7 +6,7 @@
 	display: flex;
 	align-items: center;
 	gap: 1rem;
-	@include adaptiv-value("margin-top", 32, 10);
+	@include adaptiv-value('margin-top', 32, 10);
 	display: flex;
 	flex-direction: column;
 
@@ -61,8 +61,8 @@
 
 	.statisticsCard {
 		background-color: $bgDark;
-		@include adaptiv-value("width", 300, 180);
-		@include adaptiv-value("height", 140, 120);
+		@include adaptiv-value('width', 300, 180);
+		@include adaptiv-value('height', 140, 120);
 		padding: 1rem;
 
 		display: flex;
@@ -97,19 +97,27 @@
 		}
 
 		> h1 {
-			@include adaptiv-value("font-size", 64, 48);
+			@include adaptiv-value('font-size', 64, 48);
 		}
 	}
 
 	.box {
 		display: flex;
 		align-items: center;
-		gap: 1.2rem;
+		gap: 1rem;
 		margin-top: 1rem;
 
+		@media (max-width: 520px) {
+			flex-wrap: wrap;
+
+			.skeleton {
+				flex: 1 0 auto;
+			}
+		}
+
 		.skeleton {
-			width: 260px;
-			height: 140px;
+			@include adaptiv-value('width', 300, 180);
+			@include adaptiv-value('height', 140, 120);
 			border-radius: 0.5rem;
 			background-color: $skeleton;
 		}
