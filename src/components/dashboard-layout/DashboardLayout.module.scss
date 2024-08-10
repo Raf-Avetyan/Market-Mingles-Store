@@ -48,8 +48,4 @@
 	@media (min-width: $xl2) {
 		grid-template-columns: 1.4fr 6fr;
 	}
-
-	@media (max-width: $mb) {
-		min-height: calc(100svh - 70px);
-	}
 }
