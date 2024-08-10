@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import { ChevronLeft } from 'lucide-react'
+import Image from 'next/image'
 import { Dispatch, SetStateAction, useEffect, useRef } from 'react'
 
 import { LogoutButton } from '@/components/dashboard-layout/sidebar/logoutButton/LogoutButton'
