@@ -7,7 +7,7 @@
 	min-height: 100vh;
 
 	@media (max-width: $mb) {
-		height: calc(100svh - 90px);
+		height: calc(100svh - 100px);
 		min-height: 0;
 	}
 }
