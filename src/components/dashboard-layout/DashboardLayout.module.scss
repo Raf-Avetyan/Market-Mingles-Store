@@ -49,7 +49,7 @@
 		grid-template-columns: 1.4fr 6fr;
 	}
 
-	@media (min-width: $mb) {
+	@media (max-width: $mb) {
 		min-height: calc(100svh - 70px);
 	}
 }
