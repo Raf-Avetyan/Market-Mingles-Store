@@ -9,10 +9,8 @@
 	@media (max-width: $mb) {
 		display: block;
 		min-height: 100svh;
-		padding-bottom: 70px;
 		overflow: auto;
 	}
-
 
 	&.light {
 		.main {
@@ -42,6 +40,10 @@
 		&::-webkit-scrollbar-thumb {
 			background: #444;
 			border-radius: 0.2rem;
+		}
+
+		@media (max-width: $mb) {
+			height: 100dvh;
 		}
 	}
 
