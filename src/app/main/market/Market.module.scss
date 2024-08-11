@@ -2,6 +2,10 @@
 
 .market {
 	padding: 1rem;
+
+	@media (max-width: $mb) {
+		padding-bottom: 70px;
+	}
 }
 
 .top {
