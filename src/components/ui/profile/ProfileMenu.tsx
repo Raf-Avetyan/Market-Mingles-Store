@@ -57,7 +57,6 @@ export const ProfileMenu = ({
 				<div className={styles.top}>
 					<ChevronLeft
 						className={styles.closeBtn}
-						size={40}
 						onClick={() => setIsProfileOpen(!isProfileOpen)}
 					/>
 					<div className={styles.userId}>ID: {data?.id}</div>

@@ -1,5 +1,6 @@
 @import '/src/app/scss/colors';
 @import '/src/app/scss/screens';
+@import '/src/app/scss/mixins';
 
 .wrapper {
 	position: fixed;
@@ -30,7 +31,7 @@
 		right: -100%;
 		top: 0;
 		height: 100vh;
-		width: 380px;
+		@include adaptiv-value('width', 380, 300);
 		transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 
 		&.active {
@@ -38,7 +39,7 @@
 		}
 
 		@media (max-width: $mb) {
-			height: 100dvh; 
+			height: 100dvh;
 		}
 
 		.top {
@@ -50,10 +51,13 @@
 			.closeBtn {
 				color: $green;
 				cursor: pointer;
+				@include adaptiv-value("width", 55, 38);
+				@include adaptiv-value("height", 55, 38);
 			}
 
 			.userId {
 				font-size: 0.8rem;
+				@include adaptiv-value('font-size', 14, 10);
 				background-color: rgba(0, 0, 0, 0.1);
 				padding: 0.3rem 0.8rem;
 				border: 1px solid rgba(245, 245, 245, 0.2);
@@ -100,11 +104,12 @@
 
 			.username {
 				margin-top: 1rem;
-				font-size: 1.8rem;
+				@include adaptiv-value('font-size', 31, 24);
 			}
 
 			.email {
 				font-size: 0.9rem;
+				@include adaptiv-value('font-size', 15, 12);
 			}
 		}
 	}

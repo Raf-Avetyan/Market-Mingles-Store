@@ -1,4 +1,6 @@
 @import './src/app/scss/colors';
+@import './src/app/scss/mixins';
+@import './src/app/scss/screens';
 
 .logoutBtn {
 	position: absolute;
@@ -19,9 +21,14 @@
 		position: relative;
 		color: $yellow;
 
+		svg {
+			@include adaptiv-value('width', 26, 22);
+			@include adaptiv-value('height', 26, 22);
+		}
+
 		&:hover::after {
 			opacity: 1;
-			right: 1.6rem;
+			@include adaptiv-value('right', 34, 26);
 			scale: 1;
 		}
 
@@ -35,8 +42,15 @@
 			transition: all 0.23s ease 0s;
 			position: absolute;
 			font-family: var(--first-family);
-			top: -1px;
+			@include adaptiv-value('top', 2, 1);
 			right: -1rem;
+			@include adaptiv-value('font-size', 16, 12);
+
+			@media (max-width: $mb) {
+				opacity: 1;
+				scale: 1;
+				right: 26px;
+			}
 		}
 	}
 }
