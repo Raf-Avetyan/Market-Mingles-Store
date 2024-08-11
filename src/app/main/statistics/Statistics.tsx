@@ -78,6 +78,10 @@ export const Statistics = () => {
 						variant='rectangular'
 						className={styles.skeleton}
 					/>
+					<Skeleton
+						variant='rectangular'
+						className={styles.skeleton}
+					/>
 				</Box>
 			)}
 		</div>
