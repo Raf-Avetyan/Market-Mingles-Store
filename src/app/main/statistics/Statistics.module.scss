@@ -11,7 +11,7 @@
 	flex-direction: column;
 
 	@media (max-width: $mb) {
-		height: calc(100svh - 100px);
+		height: calc(100dvh - 70px);
 	}
 
 	.title {
