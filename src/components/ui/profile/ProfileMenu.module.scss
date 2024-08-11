@@ -13,10 +13,6 @@
 	pointer-events: none;
 	transition: all 0.23s ease 0s;
 
-	@media (max-width: $mb) {
-		height: calc(100dvh - 70px);
-	}
-
 	&.light {
 		color: var(--text);
 	}
@@ -30,7 +26,7 @@
 	.profile {
 		background-color: rgba(0, 0, 0, 0.7);
 		backdrop-filter: blur(20px);
-		position: absolute;
+		position: fixed;
 		right: -100%;
 		top: 0;
 		height: 100vh;
@@ -39,6 +35,10 @@
 
 		&.active {
 			right: 0;
+		}
+
+		@media (max-width: $mb) {
+			height: calc(100dvh - 70px);
 		}
 
 		.top {
