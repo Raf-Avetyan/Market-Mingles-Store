@@ -43,7 +43,7 @@
 		}
 
 		@media (max-width: $mb) {
-			height: 100dvh;
+			height: calc(100dvh - 70px);
 		}
 	}
 
