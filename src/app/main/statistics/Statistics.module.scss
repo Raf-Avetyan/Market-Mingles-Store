@@ -10,10 +10,6 @@
 	display: flex;
 	flex-direction: column;
 
-	@media (max-width: $mb) {
-		height: calc(100dvh - 70px);
-	}
-
 	.title {
 		user-select: none;
 		text-align: center;
