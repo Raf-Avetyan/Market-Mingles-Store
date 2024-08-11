@@ -7,6 +7,7 @@ import classNames from 'classnames'
 import { useTheme } from '@/hooks/useTheme'
 
 import styles from './Statistics.module.scss'
+import { categoryItemService } from '@/services/category.service'
 import { productService } from '@/services/product.service'
 import { usersService } from '@/services/users.service'
 
@@ -17,6 +18,12 @@ export const Statistics = () => {
 		queryKey: ['products'],
 		queryFn: () => productService.getAll(),
 		refetchInterval: 1000 * 60 * 10
+	})
+
+	const { data: catgoriesData, isLoading: categoriesLoading } = useQuery({
+		queryKey: ['categories'],
+		queryFn: () => categoryItemService.getAll(),
+		refetchInterval: 1000 * 10
 	})
 
 	const { data: usersData, isLoading: usersIsLoading } = useQuery({
@@ -40,7 +47,7 @@ export const Statistics = () => {
 				</p>
 			</div>
 
-			{!productIsLoading && !usersIsLoading ? (
+			{!productIsLoading && !usersIsLoading && !categoriesLoading ? (
 				<div className={styles.cards}>
 					<div className={styles.statisticsCard}>
 						<p>
@@ -53,6 +60,12 @@ export const Statistics = () => {
 							Total <span>products:</span>
 						</p>
 						<h1>{productData?.length}</h1>
+					</div>
+					<div className={styles.statisticsCard}>
+						<p>
+							Total <span>categories:</span>
+						</p>
+						<h1>{catgoriesData?.length}</h1>
 					</div>
 				</div>
 			) : (
