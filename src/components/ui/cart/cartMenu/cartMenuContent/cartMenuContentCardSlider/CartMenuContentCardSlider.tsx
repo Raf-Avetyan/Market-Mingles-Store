@@ -7,7 +7,6 @@ import {
 	Images,
 	Image as LucideImage
 } from 'lucide-react'
-import Image from 'next/image'
 import { Dispatch, SetStateAction, useRef, useState } from 'react'
 import Slider, { Settings } from 'react-slick'
 
@@ -15,21 +14,20 @@ import { IProductResponse } from '@/types/products.types'
 
 import { useTheme } from '@/hooks/useTheme'
 
-import { ImagesShow } from '../../productCard/imagesShow/ImagesShow'
+import './CartMenuContentCardSlider.scss'
+import { ImagesShow } from '@/app/main/market/productCard/imagesShow/ImagesShow'
 
-import './ProductSinglePageSlider.scss'
-
-interface IProductSinglePageSliderProps {
+interface ICartMenuContentSlide {
 	data?: IProductResponse | Omit<IProductResponse, 'createdAt' | 'updatedAt'>
 	setShowAllImages: Dispatch<SetStateAction<boolean>>
 	showAllImages: boolean
 }
 
-export const ProductSinglePageSlider = ({
+export const CartMenuContentSlide = ({
 	data,
 	setShowAllImages,
 	showAllImages
-}: IProductSinglePageSliderProps) => {
+}: ICartMenuContentSlide) => {
 	const [isLoadingImage, setIsLoadingImage] = useState(true)
 	const [selectedIndex, setSelectedIndex] = useState(0)
 	let sliderRef = useRef<Slider | null>(null)
@@ -89,10 +87,10 @@ export const ProductSinglePageSlider = ({
 	}
 
 	return (
-		<div className='singlePageSlider-container'>
+		<div className='cartMenuContentSlider-container'>
 			<Slider
 				{...settings}
-				className='singlePageSlider'
+				className='cartMenuContentSlider'
 				ref={sliderRef}
 			>
 				{data?.imageUrls.map((img, index) => (
@@ -125,7 +123,7 @@ export const ProductSinglePageSlider = ({
 				})}
 				onClick={handleSwitchToImages}
 			>
-				{showAllImages ? <LucideImage size={30} /> : <Images size={30} />}
+				{showAllImages ? <LucideImage /> : <Images />}
 			</div>
 		</div>
 	)

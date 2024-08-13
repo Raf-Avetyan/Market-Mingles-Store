@@ -1,0 +1,40 @@
+@import './src/app/scss/colors';
+@import './src/app/scss/screens';
+@import './src/app/scss/mixins';
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	padding: 2rem;
+	row-gap: 1.5rem;
+	max-height: calc(100vh - 80px);
+	overflow: auto;
+
+	@media (max-width: $mb) {
+		max-height: calc(100dvh - 80px);
+	}
+
+	.card {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+
+		// @media (max-width: $mb) {
+		// 	grid-template-columns: 1fr;
+		// }
+
+		.info {
+			flex: 1 1 50%;
+			background-color: $bgDark;
+         @include adaptiv-value("padding", 32, 10);
+			border-radius: 0 0.8rem 0.8rem 0;
+			overflow: hidden;
+
+			// .name {
+			// }
+			// .description {
+			// }
+			// .price {
+			// }
+		}
+	}
+}

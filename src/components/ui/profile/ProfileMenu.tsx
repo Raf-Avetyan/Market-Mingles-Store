@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query'
 import classNames from 'classnames'
 import { ChevronLeft } from 'lucide-react'
 import Image from 'next/image'
@@ -5,10 +6,12 @@ import { Dispatch, SetStateAction, useEffect, useRef } from 'react'
 
 import { LogoutButton } from '@/components/dashboard-layout/sidebar/logoutButton/LogoutButton'
 
+import { useCart } from '@/hooks/useCart'
 import { useProfile } from '@/hooks/useProfile'
 import { useTheme } from '@/hooks/useTheme'
 
 import styles from './ProfileMenu.module.scss'
+import { productService } from '@/services/product.service'
 
 interface IProfileMenuProps {
 	isProfileOpen: boolean

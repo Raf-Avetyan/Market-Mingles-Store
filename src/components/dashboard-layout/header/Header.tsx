@@ -2,6 +2,7 @@
 
 import classNames from 'classnames'
 
+import { Cart } from '@/components/ui/cart/Cart'
 import { SearchForm } from '@/components/ui/searchForm/SearchForm'
 
 import { useTheme } from '@/hooks/useTheme'
@@ -27,6 +28,7 @@ export const Header = ({ sidebarWidth }: IHeaderProps) => {
 			<SearchForm />
 			<div className={styles.right}>
 				<ThemeBtn />
+				<Cart />
 				<Profile />
 			</div>
 		</header>

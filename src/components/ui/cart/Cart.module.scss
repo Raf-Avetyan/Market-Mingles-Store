@@ -1,0 +1,22 @@
+@import '/src/app/scss/colors';
+@import '/src/app/scss/mixins';
+
+.cart {
+	.icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $green;
+		svg {
+			@include adaptiv-value('width', 30, 24);
+			@include adaptiv-value('height', 30, 24);
+		}
+		cursor: pointer;
+	}
+
+   &.light {
+      .icon {
+         color: var(--green);
+      }
+   }
+}

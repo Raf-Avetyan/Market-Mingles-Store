@@ -27,8 +27,11 @@
 
 	&.light {
 		border-top: 2px solid rgba(153, 153, 153, 0.15);
-		background-color: rgba(201, 201, 201, 0.8);
 		backdrop-filter: blur(6px);
+		
+		@media (max-width: $mb) {
+			background-color: rgba(201, 201, 201, 0.8);
+		}
 
 		.panelToggleBtn {
 			color: var(--green);

@@ -28,7 +28,6 @@ export interface IProductResponse extends IBase {
 	price: string
 	description: string
 	imageUrls: string[]
-	userId: string
 	category: ICategoryResponse
 }
 export interface IProductResponseForUser
