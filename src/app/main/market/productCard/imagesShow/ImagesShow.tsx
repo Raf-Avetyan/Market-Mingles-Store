@@ -16,8 +16,8 @@ interface ImagesShowProps {
 	imageUrls: string[]
 	selectedIndex?: number
 	handleImageClick?: (index: number) => void
-	handleToSinglePage: (productId: string) => void
-	setIsCartOpen: Dispatch<SetStateAction<boolean>>
+	handleToSinglePage?: (productId: string) => void
+	setIsCartOpen?: Dispatch<SetStateAction<boolean>>
 }
 
 export const ImagesShow = ({
@@ -58,8 +58,10 @@ export const ImagesShow = ({
 				<div
 					className={styles.more}
 					onClick={() => {
-						handleToSinglePage(id ? id : '')
-						setIsCartOpen(false)
+						if (handleToSinglePage && setIsCartOpen) {
+							handleToSinglePage(id ? id : '')
+							setIsCartOpen(false)
+						}
 					}}
 				>
 					<p>
