@@ -7,8 +7,11 @@ import {
 	Images,
 	Image as LucideImage
 } from 'lucide-react'
-import { Dispatch, SetStateAction, useRef, useState } from 'react'
+import Image from 'next/image'
+import React, { Dispatch, SetStateAction, useRef, useState } from 'react'
 import Slider, { Settings } from 'react-slick'
+import 'slick-carousel/slick/slick-theme.css'
+import 'slick-carousel/slick/slick.css'
 
 import { IProductResponse } from '@/types/products.types'
 
@@ -17,25 +20,36 @@ import { useTheme } from '@/hooks/useTheme'
 import './CartMenuContentCardSlider.scss'
 import { ImagesShow } from '@/app/main/market/productCard/imagesShow/ImagesShow'
 
-interface ICartMenuContentSlide {
+interface ICartMenuContentCardSlider {
 	data?: IProductResponse | Omit<IProductResponse, 'createdAt' | 'updatedAt'>
-	setShowAllImages: Dispatch<SetStateAction<boolean>>
+	imageUrls: string[]
+	onImageLoad: () => void
+	isLoadingImage: boolean
+	handleToSinglePage: (productId: string) => void
+	id: string
+	currShowAllImagesId: string | null
+	setCurrShowAllImagesId: Dispatch<SetStateAction<string | null>>
 	showAllImages: boolean
+	setShowAllImages: Dispatch<SetStateAction<boolean>>
+	setIsCartOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export const CartMenuContentSlide = ({
+export const CartMenuContentCardSlider = ({
 	data,
+	imageUrls,
+	onImageLoad,
+	isLoadingImage,
+	handleToSinglePage,
+	id,
+	currShowAllImagesId,
+	setCurrShowAllImagesId,
+	showAllImages,
 	setShowAllImages,
-	showAllImages
-}: ICartMenuContentSlide) => {
-	const [isLoadingImage, setIsLoadingImage] = useState(true)
+	setIsCartOpen
+}: ICartMenuContentCardSlider) => {
 	const [selectedIndex, setSelectedIndex] = useState(0)
-	let sliderRef = useRef<Slider | null>(null)
 	const { themeMode } = useTheme()
-
-	const handleSwitchToImages = () => {
-		setShowAllImages(!showAllImages)
-	}
+	let sliderRef = useRef<Slider | null>(null)
 
 	const settings: Settings = {
 		dots: true,
@@ -47,7 +61,7 @@ export const CartMenuContentSlide = ({
 		prevArrow: <SamplePrevArrow />,
 		autoplay: true,
 		autoplaySpeed: 8000,
-		beforeChange: (current, next) => setSelectedIndex(next)
+		afterChange: current => setSelectedIndex(current)
 	}
 
 	function SamplePrevArrow(props: any) {
@@ -74,10 +88,6 @@ export const CartMenuContentSlide = ({
 		)
 	}
 
-	const onImageLoad = () => {
-		setIsLoadingImage(false)
-	}
-
 	const handleImageClick = (index: number) => {
 		setSelectedIndex(index)
 		setShowAllImages(false)
@@ -86,35 +96,55 @@ export const CartMenuContentSlide = ({
 		}
 	}
 
+	const handleSwitchToImages = () => {
+		if (currShowAllImagesId === id) {
+			setShowAllImages(!showAllImages)
+		} else {
+			setShowAllImages(true)
+			setCurrShowAllImagesId(id)
+		}
+	}
+
 	return (
 		<div className='cartMenuContentSlider-container'>
 			<Slider
 				{...settings}
-				className='cartMenuContentSlider'
+				className={classNames('cartMenuContentSlider-slider', {
+					hidden: isLoadingImage
+				})}
 				ref={sliderRef}
 			>
-				{data?.imageUrls.map((img, index) => (
-					<div key={index}>
+				{imageUrls.map((img, index) => (
+					<div
+						key={index}
+						className='image-container'
+					>
 						<img
 							src={img}
-							alt=''
 							onLoad={onImageLoad}
 							style={{ display: isLoadingImage ? 'none' : 'block' }}
+							onClick={() => {
+								handleToSinglePage(id)
+								setIsCartOpen(false)
+							}}
 						/>
 					</div>
 				))}
 			</Slider>
 			<div
 				className={classNames('imageShow', {
-					active: showAllImages
+					active: showAllImages && currShowAllImagesId === id
 				})}
 			>
 				<ImagesShow
+					id={data?.id}
 					sliderRef={sliderRef}
 					setShowAllImages={setShowAllImages}
-					imageUrls={data?.imageUrls ? data?.imageUrls : []}
+					imageUrls={imageUrls}
 					selectedIndex={selectedIndex}
 					handleImageClick={handleImageClick}
+					handleToSinglePage={handleToSinglePage}
+					setIsCartOpen={setIsCartOpen}
 				/>
 			</div>
 			<div
@@ -122,8 +152,13 @@ export const CartMenuContentSlide = ({
 					light: themeMode === 'light'
 				})}
 				onClick={handleSwitchToImages}
+				style={{ display: isLoadingImage ? 'none' : 'flex' }}
 			>
-				{showAllImages ? <LucideImage /> : <Images />}
+				{showAllImages && currShowAllImagesId === id ? (
+					<LucideImage />
+				) : (
+					<Images />
+				)}
 			</div>
 		</div>
 	)

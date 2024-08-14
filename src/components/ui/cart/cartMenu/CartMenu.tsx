@@ -1,8 +1,6 @@
 import classNames from 'classnames'
 import { ChevronLeft } from 'lucide-react'
-import { Dispatch, SetStateAction, useEffect, useRef } from 'react'
-
-import { LogoutButton } from '@/components/dashboard-layout/sidebar/logoutButton/LogoutButton'
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
 
 import { ICartResponse } from '@/types/auth.types'
 
@@ -24,6 +22,9 @@ export const CartMenu = ({
 }: ICartMenu) => {
 	const { themeMode } = useTheme()
 	const dropdownRef = useRef<HTMLDivElement | null>(null)
+	const [currShowAllImagesId, setCurrShowAllImagesId] = useState<string | null>(
+		null
+	)
 
 	const handleClickOutside = (e: MouseEvent) => {
 		if (
@@ -60,9 +61,15 @@ export const CartMenu = ({
 						className={styles.closeBtn}
 						onClick={() => setIsCartOpen(!isCartOpen)}
 					/>
+					<div className={styles.title}>Cart</div>
 				</div>
 				<div className={styles.content}>
-					<CartMenuContent cartData={cartData} />
+					<CartMenuContent
+						cartData={cartData}
+						currShowAllImagesId={currShowAllImagesId}
+						setCurrShowAllImagesId={setCurrShowAllImagesId}
+						setIsCartOpen={setIsCartOpen}
+					/>
 				</div>
 			</div>
 		</div>

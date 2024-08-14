@@ -10,21 +10,25 @@ import 'slick-carousel/slick/slick.css'
 import styles from './ImagesShow.module.scss'
 
 interface ImagesShowProps {
+	id?: string
 	sliderRef: MutableRefObject<Slider | null>
 	setShowAllImages: Dispatch<SetStateAction<boolean>>
 	imageUrls: string[]
 	selectedIndex?: number
 	handleImageClick?: (index: number) => void
-	handleToSinglePage?: () => void
+	handleToSinglePage: (productId: string) => void
+	setIsCartOpen: Dispatch<SetStateAction<boolean>>
 }
 
 export const ImagesShow = ({
+	id,
 	sliderRef,
 	setShowAllImages,
 	imageUrls,
 	selectedIndex,
 	handleImageClick,
-	handleToSinglePage
+	handleToSinglePage,
+	setIsCartOpen
 }: ImagesShowProps) => {
 	return (
 		<div
@@ -53,7 +57,10 @@ export const ImagesShow = ({
 			{imageUrls.length > 4 ? (
 				<div
 					className={styles.more}
-					onClick={handleToSinglePage}
+					onClick={() => {
+						handleToSinglePage(id ? id : '')
+						setIsCartOpen(false)
+					}}
 				>
 					<p>
 						<span>+</span>

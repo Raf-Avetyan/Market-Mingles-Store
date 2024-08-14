@@ -1,44 +1,55 @@
 @import './src/app/scss/colors';
+@import './src/app/scss/screens';
 @import './src/app/scss/mixins';
 
 .cartMenuContentSlider-container {
 	position: relative;
-	border-radius: 0.8rem 0 0 0.8rem;
-	overflow: hidden;
-
-	.cartMenuContentSlider {
+	height: 100%;
+	.cartMenuContentSlider-slider {
 		overflow: hidden;
 		height: 100%;
+
+		&.hidden {
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+		}
+
 		.slick-list {
 			height: 100%;
 			.slick-track {
 				height: 100%;
+				display: flex !important;
 				min-width: 2000px;
 				.slick-slide {
-					transform: translateX(0.5px);
+					display: flex !important;
+					height: auto;
+					width: 100%;
 					div {
 						height: 100%;
+						width: 100%;
+						overflow: hidden !important;
 						img {
 							object-fit: cover;
 							object-position: center;
 							width: 100%;
 							min-height: 100%;
-							border-radius: 0.8rem 0 0 0.8rem;
+							border-radius: 0;
+							transform: translateX(0.5px);
 						}
 					}
 				}
 			}
 		}
 		.slick-arrow {
-			width: 32px;
-			height: 32px;
+			width: 22px;
+			height: 22px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background-color: rgba(0, 0, 0, 0.6);
+			background-color: rgba(0, 0, 0, 0.5);
 			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 			border-radius: 50%;
-			scale: 0;
 			opacity: 0;
 			transition: all 0.23s ease 0s;
 			&::before {
@@ -47,19 +58,24 @@
 			z-index: 50;
 			color: white;
 
+			@media (max-width: $ld) {
+				scale: 1;
+				opacity: 1;
+				width: 24px;
+				height: 24px;
+			}
+
 			&.slick-prev {
-				left: 8px !important;
+				left: 4px !important;
 				svg {
-					scale: 1.2;
 					padding-right: 2px;
 					color: $green;
 				}
 			}
 
 			&.slick-next {
-				right: 8px !important;
+				right: 4px !important;
 				svg {
-					scale: 1.2;
 					padding-left: 2px;
 					color: $green;
 				}
@@ -85,7 +101,7 @@
 			display: flex !important;
 			align-items: center;
 			justify-content: center;
-			padding-top: 0.2rem;
+			padding-bottom: 0.2rem;
 			bottom: 0px !important;
 			pointer-events: none;
 			opacity: 0;
@@ -93,19 +109,42 @@
 			transform: scaleY(0);
 			transform-origin: bottom;
 			transition: all 0.23s ease 0s;
+			z-index: 0;
+
+			@media (max-width: $ld) {
+				opacity: 1;
+				pointer-events: all;
+				visibility: visible;
+				transform: scaleY(1);
+				padding-bottom: 0.3rem;
+
+				li {
+					width: 16px !important;
+					height: 12px !important;
+
+					button {
+						width: 14px !important;
+						height: 14px !important;
+						&::before {
+							font-size: 0.6rem !important;
+							color: white;
+						}
+					}
+				}
+			}
 
 			li {
 				margin: 0;
-				width: 20px;
-				height: 20px;
+				width: 14px;
+				height: 14px;
 
 				button {
-					width: 20px;
-					height: 20px;
+					width: 14px;
+					height: 14px;
 					&::before {
-						width: 18px !important;
-						height: 18px !important;
-						font-size: 0.7rem;
+						width: 12px !important;
+						height: 12px !important;
+						font-size: 0.5rem;
 						color: white;
 					}
 				}
@@ -123,8 +162,6 @@
 
 	.switchToImages {
 		position: absolute;
-		@include adaptiv-value("top", 10, 5);
-		@include adaptiv-value("right", 10, 5);
 		background-color: $bgDark;
 		display: flex;
 		align-items: center;
@@ -133,11 +170,11 @@
 		border-radius: 0.4rem;
 		z-index: 50;
 		cursor: pointer;
-
-		svg {
-			@include adaptiv-value('width', 30, 16);
-			@include adaptiv-value('height', 30, 16);
-		}
+		@include adaptiv-value('width', 40, 25);
+		@include adaptiv-value('height', 40, 25);
+		@include adaptiv-value('top', 6, 3);
+		@include adaptiv-value('right', 6, 3);
+		@include adaptiv-value('padding', 6, 4);
 
 		&.light {
 			background-color: var(--text);
@@ -156,5 +193,14 @@
 			pointer-events: all;
 			visibility: visible;
 		}
+	}
+}
+
+.image-container {
+	img {
+		object-fit: cover;
+		object-position: center;
+		width: 100%;
+		min-height: 100%;
 	}
 }

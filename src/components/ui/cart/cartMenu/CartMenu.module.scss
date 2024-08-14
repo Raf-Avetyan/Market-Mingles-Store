@@ -31,8 +31,12 @@
 		right: -100%;
 		top: 0;
 		height: 100vh;
-		@include adaptiv-value('width', 580, 300);
+		@include adaptiv-value('width', 580, 350);
 		transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+
+		@media (max-width: $ld) {
+			width: 100%;
+		}
 
 		&.active {
 			right: 0;
@@ -46,13 +50,18 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			padding: 1rem;
+			padding: 1rem 2rem 1rem 1rem;
 
 			.closeBtn {
 				color: $green;
 				cursor: pointer;
 				@include adaptiv-value("width", 55, 38);
 				@include adaptiv-value("height", 55, 38);
+			}
+
+			.title {
+				@include adaptiv-value("font-size", 40, 28);
+				color: $green;
 			}
 		}
 
