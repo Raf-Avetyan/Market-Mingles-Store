@@ -1,6 +1,6 @@
 ## Desktop version
 
-<img src="https://github.com/user-attachments/assets/ee9b024b-8deb-4ec8-8789-a8aac0be316f" height="300" width="500"/> <img src="https://github.com/user-attachments/assets/f148ba46-8bdb-45ba-b2aa-88242c8f65cf" height="300" width="500"/>
+<img src="https://github.com/user-attachments/assets/ee9b024b-8deb-4ec8-8789-a8aac0be316f" height="180" width="300"/> <img src="https://github.com/user-attachments/assets/f148ba46-8bdb-45ba-b2aa-88242c8f65cf" height="180" width="300"/>
 
 ## Mobile version
 
