@@ -4,7 +4,7 @@
 
 ## Mobile version
 
-<img src="https://github.com/user-attachments/assets/f39d41d0-750b-4c47-94a8-87f3199c72bc" width="150" height="260" /> <img src="https://github.com/user-attachments/assets/ad0e115c-960e-43ef-9fad-df318cd346a1" width="150" height="260" />
+<img src="https://github.com/user-attachments/assets/f39d41d0-750b-4c47-94a8-87f3199c72bc" width="150" height="280" /> <img src="https://github.com/user-attachments/assets/ad0e115c-960e-43ef-9fad-df318cd346a1" width="150" height="280" />
 
 ## Getting Started
 
